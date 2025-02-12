@@ -1,0 +1,7 @@
+
+
+include DEFS.CON
+
+// Frozen skybox
+defineskybox 94 0 0 models/skybox/frozen_rt.jpg models/skybox/frozen_ft.jpg models/skybox/frozen_lf.jpg models/skybox/frozen_bk.jpg models/skybox/frozen_up.jpg models/skybox/frozen_dn.jpg
+
