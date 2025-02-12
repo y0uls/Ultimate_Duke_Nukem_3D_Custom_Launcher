@@ -1,0 +1,10 @@
+{
+	"Title": "Toys",
+	"Description": "Author unknown.",
+	"Type": "Map",
+	"Category": [
+		"Singleplayer",
+		"Deathmatch",
+                "Coop",
+	]
+}
