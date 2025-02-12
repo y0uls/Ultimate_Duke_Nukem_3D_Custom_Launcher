@@ -1,0 +1,460 @@
+
+// appart_chair
+model "dk/models/appart_chair/appart_chair.md3"
+{
+  scale 1 shade 11
+  skin { pal 0 file "dk/models/appart_chair/a.BMP" }
+  skin { pal 30 file "dk/models/appart_chair/b.BMP" }  
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 3892 tile1 3892 }
+}
+
+// pallet
+model "dk/models/pallet/pallet.md3"
+{
+  scale 1 shade 05
+  skin { pal 0 file "dk/models/pallet/pallet.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 4070 tile1 4070 }
+}
+
+// generator
+model "dk/models/generator/generator.md3"
+{
+  scale 1 shade 11
+  skin { pal 0 file "dk/models/generator/generator.JPG" } 
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5125 tile1 5125 }
+}
+
+// barrel_01
+model "dk/models/barrel_01/barrel_01.md3"
+{
+  scale 1.0 shade 05
+  skin { pal 0 file "dk/models/barrel_01/barrel_01.jpg" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5163 tile1 5163 }
+}
+
+// barrel_02
+model "dk/models/barrel_02/barrel_02.md3"
+{
+  scale 1.0 shade 05
+  skin { pal 0 file "dk/models/barrel_02/barrel_02.jpg" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5164 tile1 5164 }
+}
+
+// toolbox
+model "dk/models/toolbox/toolbox.md3"
+{
+  scale 2 shade 11
+  skin { pal 0 surface 0 file "dk/models/toolbox/toolbox.JPG" }
+  skin { pal 0 surface 1 file "dk/models/toolbox/caster.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5165 tile1 5165 }
+}
+
+// dumpster01
+model "dk/models/dumpster01/dumpster01.md3"
+{
+  scale 1.0 shade 05
+  skin { pal 0 file "dk/models/dumpster01/dumpster01.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5166 tile1 5166 }
+}
+
+// st_latern
+model "dk/models/st_latern/st_latern.md3"
+{
+  scale 1.0 shade 05
+  skin { pal 0 file "dk/models/st_latern/st_latern.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5167 tile1 5167 }
+}
+
+// armstand
+model "dk/models/armstand/armstand.md3"
+{
+  scale 1.0 shade 11
+  skin { pal 0 surface 0 file "dk/models/armstand/b.BMP" }
+  skin { pal 0 surface 1 file "dk/models/armstand/a.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5261 tile1 5261 }
+}
+
+// pom_radio
+model "dk/models/pom_radio/pom_radio.md3"
+{
+  scale 1.0 shade 11
+  skin { pal 0 file "dk/models/pom_radio/pom_radio.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5262 tile1 5262 }
+}
+
+// s_sofa
+model "dk/models/s_sofa/s_sofa.md3"
+{
+  scale 1.0 shade 17
+  skin { pal 0 file "dk/models/s_sofa/s_sofa.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5257 tile1 5257 }
+}
+
+// taxi_office
+model "dk/models/taxi_office/taxi_office.md3"
+{
+  scale 1.0 shade 05
+  skin { pal 0 file "dk/models/taxi_office/taxi_office.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5368 tile1 5368 }
+}
+
+// nbar_stool
+model "dk/models/nbar_stool/nbar_stool.md3"
+{
+  scale 1.0 shade 22 
+  skin { pal 0 file "dk/models/nbar_stool/nbar_stool.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5477 tile1 5477 }
+}
+
+// nbar_light
+model "dk/models/nbar_light/nbar_light.md3"
+{
+  scale 1.0 shade 22
+  skin { pal 0 surface 0 file "dk/models/nbar_light/b.BMP" }
+  skin { pal 0 surface 1 file "dk/models/nbar_light/a.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5478 tile1 5478 }
+}
+
+// db_trashbin
+model "dk/models/db_trashbin/db_trashbin.md3"
+{
+  scale 1.0 shade 01
+  skin { pal 0 file "dk/models/db_trashbin/db_trashbin.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5405 tile1 5405 }
+}
+
+// db_soda_fount
+model "dk/models/db_soda_fount/db_soda_fount.md3"
+{
+  scale 1.0 shade 01
+  skin { pal 0 surface 0 file "dk/models/db_soda_fount/a.JPG" }
+  skin { pal 0 surface 1 file "dk/models/db_soda_fount/b.JPG" }
+  skin { pal 0 surface 2 file "dk/models/db_soda_fount/c.JPG" }
+  skin { pal 0 surface 3 file "dk/models/db_soda_fount/d.JPG" }
+  skin { pal 0 surface 4 file "dk/models/db_soda_fount/e.JPG" }
+  skin { pal 0 surface 5 file "dk/models/db_soda_fount/f.JPG" }
+  skin { pal 0 surface 6 file "dk/models/db_soda_fount/g.JPG" }
+  skin { pal 0 surface 7 file "dk/models/db_soda_fount/h.JPG" }
+  skin { pal 0 surface 8 file "dk/models/db_soda_fount/i.JPG" }
+  skin { pal 0 surface 9 file "dk/models/db_soda_fount/j.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5406 tile1 5406 }
+}
+
+// cash_register
+model "dk/models/cash_register/cash_register.md3"
+{
+  scale 1.0 shade 01
+  skin { pal 0 file "dk/models/cash_register/cash_register.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5407 tile1 5407 }
+}
+
+// db_couch
+model "dk/models/db_couch/db_couch.md3"
+{
+  scale 1.0 shade 01 
+  skin { pal 0 file "dk/models/db_couch/db_couch.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5409 tile1 5409 }
+}
+
+// db_dishwasher
+model "dk/models/db_dishwasher/db_dishwasher.md3"
+{
+  scale 1.0 shade 05 
+  skin { pal 0 file "dk/models/db_dishwasher/db_dishwasher.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5411 tile1 5411 }
+}
+
+// db_stove
+model "dk/models/db_stove/db_stove.md3"
+{
+  scale 1.0 shade 05 
+  skin { pal 0 file "dk/models/db_stove/db_stove.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5412 tile1 5412 }
+}
+
+// db_stove2
+model "dk/models/db_stove2/db_stove2.md3"
+{
+  scale 1.0 shade 05 
+  skin { pal 0 file "dk/models/db_stove2/db_stove2.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5413 tile1 5413 }
+}
+
+// db_freezer
+model "dk/models/db_freezer/db_freezer.md3"
+{
+  scale 1.0 shade 05 
+  skin { pal 0 file "dk/models/db_freezer/db_freezer.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5414 tile1 5414 }
+}
+
+// db_fryer1
+model "dk/models/db_fryer1/db_fryer1.md3"
+{
+  scale 1.0 shade 05 
+  skin { pal 0 file "dk/models/db_fryer1/db_fryer1.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5415 tile1 5415 }
+}
+
+// db_fryer2
+model "dk/models/db_fryer2/db_fryer2.md3"
+{
+  scale 1.0 shade 05 
+  skin { pal 0 file "dk/models/db_fryer2/db_fryer2.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5416 tile1 5416 }
+}
+
+// db_sink
+model "dk/models/db_sink/db_sink.md3"
+{
+  scale 1.0 shade 05 
+  skin { pal 0 file "dk/models/db_sink/db_sink.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5417 tile1 5417 }
+}
+
+// db_table
+model "dk/models/db_table/db_table.md3"
+{
+  scale 1.0 shade 05 
+  skin { pal 0 file "dk/models/db_table/db_table.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5418 tile1 5418 }
+}
+
+// db_top1
+model "dk/models/db_top1/db_top1.md3"
+{
+  scale 1.0 shade 05 
+  skin { pal 0 file "dk/models/db_top1/db_top1.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5419 tile1 5419 }
+}
+
+// db_top2
+model "dk/models/db_top2/db_top2.md3"
+{
+  scale 1.0 shade 05 
+  skin { pal 0 file "dk/models/db_top2/db_top2.BMP" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5420 tile1 5420 }
+}
+
+// radio
+model "dk/models/radio/radio.md3"
+{
+  scale 1.0 shade 01
+  skin { pal 0 file "dk/models/radio/radio.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5273 tile1 5273 }
+}
+
+// office_chair
+model "dk/models/office_chair/office_chair.md3"
+{
+  scale 1.0 shade 01
+  skin { pal 0 file "dk/models/office_chair/office_chair.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5274 tile1 5274 }
+}
+
+// outside_bench
+model "dk/models/outside_bench/outside_bench.md3"
+{
+  scale 1.0 shade 01
+  skin { pal 0 file "dk/models/outside_bench/outside_bench.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5275 tile1 5275 }
+}
+
+// inside_bench
+model "dk/models/inside_bench/inside_bench.md3"
+{
+  scale 1.0 shade 01
+  skin { pal 0 file "dk/models/inside_bench/inside_bench.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5276 tile1 5276 }
+}
+
+// taxi
+model "dk/models/taxi/taxi.md3"
+{
+  scale 1 shade 11
+  skin { pal 0 file "dk/models/taxi/a.JPG" } 
+  skin { pal 0 surface 1 file "dk/models/taxi/b.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5600 tile1 5600 }
+}
+
+// taxi
+model "dk/models/taxi/taxi.md3"
+{
+  scale 1 shade 11
+  skin { pal 0 file "dk/models/taxi/a.JPG" } 
+  skin { pal 0 surface 1 file "dk/models/taxi/b.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5610 tile1 5610 }
+}
+
+
+// h_car1
+model "dk/models/h_car1/h_car1.md3"
+{
+  scale 1 shade 11
+  skin { pal 0 file "dk/models/h_car1/a.JPG" } 
+  skin { pal 0 surface 1 file "dk/models/h_car1/b.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5601 tile1 5601 }
+}
+
+// h_car1
+model "dk/models/h_car1/h_car1.md3"
+{
+  scale 1 shade 11
+  skin { pal 0 file "dk/models/h_car1/a.JPG" } 
+  skin { pal 0 surface 1 file "dk/models/h_car1/b.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5611 tile1 5611 }
+}
+
+// nypd
+model "dk/models/nypd/nypd.md3"
+{
+  scale 15 shade 11
+  skin { pal 0 file "dk/models/nypd/nypd.JPG" } 
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5602 tile1 5602 }
+}
+
+// nor_car
+model "dk/models/nor_car/nor_car.md3"
+{
+  scale 1 shade 11
+  skin { pal 0 file "dk/models/nor_car/a.JPG" } 
+  skin { pal 30 file "dk/models/nor_car/b.JPG" } 
+  skin { pal 31 file "dk/models/nor_car/c.JPG" } 
+  skin { pal 32 file "dk/models/nor_car/d.JPG" } 
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5603 tile1 5603 }
+}
+
+// nor_car
+model "dk/models/nor_car/nor_car.md3"
+{
+  scale 1 shade 11
+  skin { pal 0 file "dk/models/nor_car/a.JPG" } 
+  skin { pal 30 file "dk/models/nor_car/b.JPG" } 
+  skin { pal 31 file "dk/models/nor_car/c.JPG" } 
+  skin { pal 32 file "dk/models/nor_car/d.JPG" } 
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5612 tile1 5612 }
+}
+
+// chen_car
+model "dk/models/chen_car/chen_car.md3"
+{
+  scale 1 shade 11
+  skin { pal 0 file "dk/models/chen_car/chen_car.JPG" } 
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5604 tile1 5604 }
+}
+
+// garbage_truck
+model "dk/models/garbage_truck/garbage_truck.md3"
+{
+  scale 1 shade 11
+  skin { pal 0 file "dk/models/garbage_truck/b.JPG" } 
+  skin { pal 0 surface 1 file "dk/models/garbage_truck/a.JPG" }
+  skin { pal 0 surface 2 file "dk/models/garbage_truck/a.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5605 tile1 5605 }
+}
+
+// wreck_car
+model "dk/models/wreck_car/wreck_car.md3"
+{
+  scale 1 shade 11
+  skin { pal 0 file "dk/models/wreck_car/a.PNG" } 
+  skin { pal 31 file "dk/models/wreck_car/b.PNG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5606 tile1 5606 }
+}
+
+// train
+model "dk/models/train/train.md3"
+{
+  scale 1 shade 11
+  skin { pal 0 file "dk/models/train/a.JPG" } 
+  skin { pal 0 surface 1 file "dk/models/train/b.JPG" }
+  skin { pal 0 surface 2 file "dk/models/train/c.JPG" }
+  skin { pal 0 surface 3 file "dk/models/train/d.JPG" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5607 tile1 5607 }
+}
