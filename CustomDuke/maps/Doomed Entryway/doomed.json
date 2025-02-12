@@ -1,0 +1,10 @@
+{
+	"Title": "Doomed Entryway",
+	"Description": "Remake of Map01 from Doom II.",
+	"Type": "Map",
+	"Category": [
+		"Singleplayer",
+		"Deathmatch",
+                "Coop",
+	]
+}
