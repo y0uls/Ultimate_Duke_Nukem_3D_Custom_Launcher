@@ -1,0 +1,67 @@
+/*
+--------------------------------------------------------------------------------
+
+HOW TO INSTALL THE EXTRA .CON FILE
+
+Add "include ACC.CON" right after the "include USER.CON" line in
+"GAME.CON", that should do the trick. I think you can also add extra
+code files to compile via the command line, but I'm not sure. There are
+a few extra bits of code for Needle Time, just in case I ever happen to
+make both maps work together (the ART file shouldn't be an issue)
+
+--------------------------------------------------------------------------------
+*/
+
+/*
+--------------------------------------------------------------------------------
+Custom sprites definition (=DEFS.CON)
+--------------------------------------------------------------------------------
+*/
+
+define ACC_SHADES                       3636
+define ACC_SHADESBREAK1                 3637
+define ACC_SHADESBREAK2                 3638
+// ACC, nurse & transfusion pole (StDuke AKA Needle Time - uncomment to enable)
+// define ACC_NURSE                      3585
+// define ACC_HOSPITAL1                  3597
+
+/*
+--------------------------------------------------------------------------------
+Custom sounds definition (=DEFS.CON)
+--------------------------------------------------------------------------------
+*/
+// ACC, heartbeat for the surgery room (StDuke AKA Needle Time - uncomment to enable)
+// define HEART_BEAT                       398
+// definesound HEART_BEAT                  hbeat.voc       0   0   0   2   0
+
+/*
+--------------------------------------------------------------------------------
+Custom code (=GAME.CON)
+--------------------------------------------------------------------------------
+*/
+
+// ACC, Breakable transfusionpole (StDuke AKA Needle Time - uncomment to enable)
+// useractor notenemy ACC_HOSPITAL1 WEAK state breakobject enda
+
+// ACC, Nurse (StDuke AKA Needle Time - uncomment to enable)
+// actor NURSE TOUGH FEMANIMATE
+//  state femcode
+// enda
+
+// ACC, shade object
+
+actor ACC_SHADES
+	cstator 2321	// ACC, use the OR method for the actor state:: 2321 = Solid (1) + Vertically Flat (16) + HitScan (256) + Custom Shadow (2048)
+	ifhitweapon
+		{
+		ifrnd 160	// if a random value between 0-255 is less than 160...
+			cactor ACC_SHADESBREAK1
+		else
+			cactor ACC_SHADESBREAK2
+		debris SCRAP1 5
+		debris SCRAP2 5
+		sound VENT_BUST
+		cstat 2064	// ACC, reset the actor state to:: 2064 = Vertically Flat (16) + Custom Shadow (2048)
+		break
+		} 
+enda

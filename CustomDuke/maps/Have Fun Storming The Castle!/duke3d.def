@@ -1,0 +1,5 @@
+
+include DEFS.CON
+
+defineskybox 99 0 0 hfstc_sky/front.jpg hfstc_sky/right.jpg hfstc_sky/back.jpg hfstc_sky/left.jpg hfstc_sky/up.jpg hfstc_sky/down.jpg
+
