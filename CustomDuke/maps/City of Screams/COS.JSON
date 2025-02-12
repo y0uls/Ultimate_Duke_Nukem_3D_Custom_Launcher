@@ -1,0 +1,10 @@
+{
+	"Title": "City of Screams",
+	"Description": "A classic urban brawl in a medium-large and detailed city map by Nutwrench.",
+	"Type": "Map",
+	"Category": [
+		"Singleplayer",
+		"Deathmatch",
+                "Coop",
+	]
+}
