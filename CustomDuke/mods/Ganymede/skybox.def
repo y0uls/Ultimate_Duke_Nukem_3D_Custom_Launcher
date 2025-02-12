@@ -1,0 +1,25 @@
+//Skyboxs
+
+// jungle sunset skybox
+defineskybox 199 0 0 wgrealms2/sky/bf_lf.jpg wgrealms2/sky/bf_bk.jpg wgrealms2/sky/bf_rt.jpg wgrealms2/sky/bf_ft.jpg wgrealms2/sky/bf_up.jpg wgrealms2/sky/bf_dn.jpg
+
+// jungle sunset skybox
+defineskybox 5121 0 0 wgrealms2/sky/bf_lf.jpg wgrealms2/sky/bf_bk.jpg wgrealms2/sky/bf_rt.jpg wgrealms2/sky/bf_ft.jpg wgrealms2/sky/bf_up.jpg wgrealms2/sky/bf_dn.jpg
+
+// jungle sunset skybox
+defineskybox 4011 0 0 wgrealms2/sky/bf_lf.jpg wgrealms2/sky/bf_bk.jpg wgrealms2/sky/bf_rt.jpg wgrealms2/sky/bf_ft.jpg wgrealms2/sky/bf_up.jpg wgrealms2/sky/bf_dn.jpg
+
+// Castle/ruins skybox
+defineskybox 3788 0 0 wgrealms2/sky/devpun_rt.jpg wgrealms2/sky/devpun_ft.jpg wgrealms2/sky/devpun_lf.jpg wgrealms2/sky/devpun_bk.jpg wgrealms2/sky/devpun_up.jpg wgrealms2/sky/devpun_dn.jpg
+
+// Castle/ruins2 skybox
+defineskybox 99 24 0  wgrealms2/sky/firesky_rt.jpg wgrealms2/sky/firesky_ft.jpg wgrealms2/sky/firesky_lf.jpg wgrealms2/sky/firesky_bk.jpg wgrealms2/sky/firesky_up.jpg wgrealms2/sky/firesky_dn.jpg
+
+// House skybox
+defineskybox 79 0 0 wgrealms2/sky/grave_rt.jpg wgrealms2/sky/grave_ft.jpg wgrealms2/sky/grave_lf.jpg wgrealms2/sky/grave_bk.jpg wgrealms2/sky/grave_up.jpg wgrealms2/sky/grave_dn.jpg
+
+// firesky skybox
+defineskybox 3657 0 0 wgrealms2/sky/firesky_rt.jpg wgrealms2/sky/firesky_ft.jpg wgrealms2/sky/firesky_lf.jpg wgrealms2/sky/firesky_bk.jpg wgrealms2/sky/firesky_up.jpg wgrealms2/sky/firesky_dn.jpg
+
+// WOODLANDS skybox
+defineskybox 5200 0 0  wgrealms2/sky/goldrush512_rt.jpg wgrealms2/sky/goldrush512_ft.jpg wgrealms2/sky/goldrush512_lf.jpg wgrealms2/sky/goldrush512_bk.jpg wgrealms2/sky/goldrush512_up.jpg wgrealms2/sky/goldrush512_dn.jpg

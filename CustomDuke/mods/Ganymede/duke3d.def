@@ -1,0 +1,39 @@
+//Skyboxs
+
+// jungle sunset skybox
+defineskybox 199 0 0 sky/bf_lf.jpg sky/bf_bk.jpg sky/bf_rt.jpg sky/bf_ft.jpg sky/bf_up.jpg sky/bf_dn.jpg
+
+// jungle sunset skybox
+defineskybox 4011 0 0 sky/bf_lf.jpg sky/bf_bk.jpg sky/bf_rt.jpg sky/bf_ft.jpg sky/bf_up.jpg sky/bf_dn.jpg
+
+// jungle sunset skybox
+defineskybox 5121 0 0 sky/bf_lf.jpg sky/bf_bk.jpg sky/bf_rt.jpg sky/bf_ft.jpg sky/bf_up.jpg sky/bf_dn.jpg
+
+// Castle/ruins skybox
+defineskybox 3788 0 0 sky/devpun_rt.jpg sky/devpun_ft.jpg sky/devpun_lf.jpg sky/devpun_bk.jpg sky/devpun_up.jpg sky/devpun_dn.jpg
+
+// Castle/ruins2 skybox
+defineskybox 99 24 0  sky/firesky_rt.jpg sky/firesky_ft.jpg sky/firesky_lf.jpg sky/firesky_bk.jpg sky/firesky_up.jpg sky/firesky_dn.jpg
+
+// House skybox
+defineskybox 79 0 0 sky/grave_rt.jpg sky/grave_ft.jpg sky/grave_lf.jpg sky/grave_bk.jpg sky/grave_up.jpg sky/grave_dn.jpg
+
+// firesky skybox
+defineskybox 3657 0 0 sky/firesky_rt.jpg sky/firesky_ft.jpg sky/firesky_lf.jpg sky/firesky_bk.jpg sky/firesky_up.jpg sky/firesky_dn.jpg
+
+// WOODLANDS skybox
+defineskybox 5200 0 0  sky/goldrush512_rt.jpg sky/goldrush512_ft.jpg sky/goldrush512_lf.jpg sky/goldrush512_bk.jpg sky/goldrush512_up.jpg sky/goldrush512_dn.jpg
+
+
+// galaxy skybox
+skybox
+{
+   tile 95 pal 0
+   top   "sky/GalaxyUp.png" nocompress nodownsize
+   down  "sky/GalaxyDn.png" nocompress nodownsize
+   front "sky/GalaxyFt.png" nocompress nodownsize
+   right "sky/GalaxyLf.png" nocompress nodownsize 
+   back  "sky/GalaxyBk.png" nocompress nodownsize
+   left  "sky/GalaxyRt.png" nocompress nodownsize 
+}
+
