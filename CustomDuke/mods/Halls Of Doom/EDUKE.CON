@@ -1,0 +1,13 @@
+include GAME.CON
+
+definevolumename 0 HALLS OF DOOM
+
+definelevelname 0 0 hallsofdoom1.map 00:00 00:00 THE BRIDGE
+definelevelname 0 1 hallsofdoom2.map 00:00 00:00 ABANDONDED BASE
+definelevelname 0 2 hallsofdoom3.map 00:00 00:00 ULTIMATUM
+
+music 0 hallsofdoom0.ogg hallsofdoom0.ogg
+
+music 1 hallsofdoom1.ogg hallsofdoom2.ogg hallsofdoom3.ogg
+
+definesound BONUSMUSIC          hallsbonus.ogg         0 0 255 1 0
