@@ -1,0 +1,9 @@
+{
+        "Title": "Qadim",
+        "Description": "Some description. It can be changed later on Workshop web page. 8000 characters max",
+        "Type": "Map",
+        "Category": [                
+                "Deathmatch",
+                "Singleplayer",               
+        ]
+}
