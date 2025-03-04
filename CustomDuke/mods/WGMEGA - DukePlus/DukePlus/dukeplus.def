@@ -1,0 +1,2890 @@
+echo "Duke Plus 2.40"
+
+include duke3d.def
+include dukebike/dukebike.def
+include strooper/Strooper.def
+include DUKEPLUS_RESOURCES/GRAPHICS/tilefromtexture/dptiles.def
+include DUKEPLUS_RESOURCES/GRAPHICS/civilians.def
+// include DNE.def
+// include DUKEPLUS_RESOURCES/GRAPHICS/dukecanhand/dukecanhand.def
+
+// Duke3D HRP HUD Weapons Definitions
+
+// tint { pal 1 red 100 green 120 blue 148 flags 1 }
+// tint { pal 2 red 255 green 128 blue  50 flags 0 }
+// tint { pal 4 red   0 green   0 blue   0 flags 0 }
+// tint { pal 6 red 224 green 255 blue 112 flags 3 }
+// tint { pal 7 red 172 green 157 blue 140 flags 0 }
+// tint { pal 8 red 199 green 226 blue 113 flags 1 }
+tint { pal 33 red 200 green 200 blue 200 flags 1 }
+// tint { pal 17 red 160 green 96 blue 160 flags 0 }
+
+// fogpal [palette number] [red intensity] [green intensity] [blue intensity]
+// pal 27 is red
+// pal 28 is green
+// pal 29 is blue
+fogpal 30 0 25 35 // normal water
+fogpal 31 0 5 10 // dark water
+fogpal 32 0 3 6 // very dark water
+fogpal 33 40 40 40 // white
+
+fogpal 150 0 0 0
+fogpal 151 0 0 0
+fogpal 152 0 0 0
+fogpal 153 0 0 0
+fogpal 154 0 0 0
+fogpal 155 0 0 0
+fogpal 156 0 0 0
+fogpal 157 0 0 0
+fogpal 158 0 0 0
+fogpal 159 0 0 0
+tint { pal 150 red 255 green 0 blue 0 flags 0 }
+tint { pal 151 red 220 green 10 blue 10 flags 0 }
+tint { pal 152 red 190 green 15 blue 15 flags 0 }
+tint { pal 153 red 170 green 20 blue 20 flags 0 }
+tint { pal 154 red 150 green 25 blue 50 flags 0 }
+tint { pal 155 red 130 green 30 blue 90 flags 0 }
+tint { pal 156 red 110 green 40 blue 130 flags 0 }
+tint { pal 157 red 80 green 60 blue 170 flags 0 }
+tint { pal 158 red 40 green 80 blue 210 flags 0 }
+tint { pal 159 red 0 green 100 blue 255 flags 0 }
+
+// undeftexture 199
+undeftexture 1560
+undeftexture 2521
+undeftexture 2522
+
+   // crouch and death anim for Duke Plus bots
+   model "highres/sprites/characters_polymost/1405_duke.md3" {
+      scale 1.55 shade 0 
+      skin { pal 0 surface 0 file "highres/sprites/pickups_polymost/0057_jetpack.png" }
+      skin { pal 0 surface 1 file "highres/sprites/characters_polymost/1405_duke.png" }
+      skin { pal 10 surface 1 file "highres/sprites/characters_polymost/1405_duke_10.png" }
+      skin { pal 11 surface 1 file "highres/sprites/characters_polymost/1405_duke_11.png" }
+      skin { pal 12 surface 1 file "highres/sprites/characters_polymost/1405_duke_12.png" }
+      skin { pal 13 surface 1 file "highres/sprites/characters_polymost/1405_duke_13.png" }
+      skin { pal 14 surface 1 file "highres/sprites/characters_polymost/1405_duke_14.png" }
+      skin { pal 15 surface 1 file "highres/sprites/characters_polymost/1405_duke_15.png" }
+      skin { pal 16 surface 1 file "highres/sprites/characters_polymost/1405_duke_16.png" }
+      skin { pal 21 surface 1 file "highres/sprites/characters_polymost/1405_duke_21.png" }
+      skin { pal 23 surface 1 file "highres/sprites/characters_polymost/1405_duke_23.png" }
+      skin { pal 0 surface 2 file "highres/sprites/pickups/0023_rpg.png" }
+
+      // Crouch
+      frame { name "crouch1" tile0 1471 tile1 1475 smoothduration 0.2 }
+      frame { name "crouch2" tile0 1476 tile1 1480 smoothduration 0.2 }
+      frame { name "crouch3" tile0 1481 tile1 1485 smoothduration 0.2 }
+      // Death
+      anim { frame0 "die0" frame1 "die1" fps 25 flags 1 }
+      frame { name "die0" tile0 1506 tile1 1510 smoothduration 0.2 }
+      frame { name "dead" tile 1519 smoothduration 0.3 }
+   }
+
+// Pistol (2524)
+model "highres/sprites/firstperson/2524_pistol.md3" {
+//    scale 1.9
+//    skin { pal 0 file "highres/sprites/firstperson/2524_pistol.png" }
+//    glow { file "highres/sprites/firstperson/2524_pistol_g.png" }
+//    frame { name "Frame0" tile 2524 }
+//    anim { frame0 "Frame6" frame1 "Frame15" fps 12.5 }
+//    frame { name "Frame6" tile0 2528 tile1 2529 }
+   hud { tile0 2524 tile1 2526 xadd -0.15 yadd 1.32 zadd -0.56 }
+   hud { tile0 2528 tile1 2529 xadd -0.15 yadd 1.36 zadd -0.68 }
+   hud { tile0 2524 tile1 2524 xadd 0.1 yadd 0.55 zadd -0.56 flipped }
+   hud { tile 2528 xadd 0.15 yadd 0.2 zadd -0.68 flipped }
+   hud { tile 2529 xadd 0.15 yadd 0.0 zadd -0.68 flipped }  
+}
+
+// Pistol (2524)
+model "highres/sprites/firstperson/2524_pistol.md3" {
+//    scale 1.9
+//    skin { pal 0 file "highres/sprites/firstperson/2524_pistol.png" }
+//    glow { file "highres/sprites/firstperson/2524_pistol_g.png" }
+//    
+//    anim { frame0 "Frame1" frame1 "Frame5" fps 60 flags 0 } 
+//    frame { name "Frame1" tile0 2525 tile1 2526 smoothduration 0.0 }
+   
+   hud { tile0 2525 tile1 2526 xadd 0.12 yadd 0.4 zadd -0.56 flipped }   
+   
+}
+
+model "highres/sprites/firstperson/2530_clip.md3" {
+   scale 1.9
+   skin { pal 0 file "highres/sprites/pickups/0040_pistolammo.jpg" }
+   frame { name "Frame0" tile0 2530 tile1 2531 }
+   hud { tile 2530 xadd -0.48 yadd 0.7 zadd -0.48 angadd -37  flipped }
+}
+
+model "highres/sprites/firstperson/2532_cliphand.md3" {
+   scale 1.9
+//   skin { pal 0 file "highres/sprites/firstperson/2532_cliphand.png" }
+//   frame { name "idle" tile 2532 }
+   skin { pal 0 file "highres/sprites/firstperson/duke_hand_d.png" }
+   specular { pal 0 file "highres/sprites/firstperson/duke_hand_s.png" }
+   normal { pal 0 file "highres/sprites/firstperson/duke_hand_n.png" }
+   frame { name "frame_1" tile 2532 }
+//   hud { tile 2532 xadd 0.35 yadd 1.36 zadd -0.48 angadd -37 fov 360 }
+   hud { tile 2532 xadd -0.45 yadd 0.65 zadd -0.48 angadd -37  flipped }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/shell.md3" {
+  scale 5 shade 5
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/shell.png" }
+  anim { frame0 "FRAME2" frame1 "FRAME10" fps 40 flag 0 }
+  anim { frame0 "FRAME11" frame1 "FRAME16" fps 30 flag 1 }
+  frame { name "FRAME2" tile0 2533 tile1 2534 }
+  frame { name "FRAME11" tile 6353 }
+  frame { name "FRAME16" tile 6354  }
+  frame { name "FRAME1" tile 6357 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/shell.md3" {
+  scale 7 shade 5
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/shell2.png" }
+  anim { frame0 "FRAME2" frame1 "FRAME10" fps 40 flag 0 }
+  anim { frame0 "FRAME11" frame1 "FRAME16" fps 30 flag 1 }
+  frame { name "FRAME2" tile 2535 }
+  frame { name "FRAME2" tile 6325 }
+  frame { name "FRAME16" tile 6355 }
+  frame { name "FRAME1" tile 6356 }
+
+}
+
+// Devastator (2510)
+//model "highres/sprites/firstperson/2510_devastator.md3" {
+//   scale 1.5
+//   skin { pal 0 file "highres/sprites/firstperson/2510_devastator_d.png" specfactor 0.5 specpower 35 }
+//   //normal { file "highres/sprites/firstperson/2510_devastator_n.png" parallaxbias 0.0 parallaxscale 0.0 }
+//   specular { file "highres/sprites/firstperson/2510_devastator_s.png" }
+//   frame { name "Frame0" tile 2510 }
+//   glow { file "highres/sprites/firstperson/2510_devastator_g.png" }
+//   frame { name "Frame1" tile 2511 }
+//   hud { tile0 2510 tile1 2511 xadd -0.38 yadd -0.70 zadd 1.42 angadd 1024 flipped } //left devastator
+//   hud { tile0 2510 tile1 2511 xadd 0.38 yadd 0.18 zadd 1.42 angadd 1024 } //right devastator
+//}
+
+//texture 2533 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/2533.png" nocompress nodownsize } }
+//texture 2534 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/2534.png" nocompress nodownsize } }
+
+// LASER PISTOL PICKUP (6145)
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_pickup.md3" { 
+   scale 3.0 shade 1
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_1.jpg" }
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_1.jpg" } 
+       normal { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_N.png" }
+       normal { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_N.png" }
+     specular { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_S.png" }
+     specular { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_S.png" }
+   frame { name "none00" tile 6145 }
+}
+
+
+// HUD Laser Pistol (6146)
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_1.md3" {
+   scale 1.6 // 1.9
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_1.jpg" }
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_1.jpg" } 
+   skin { pal 0 surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/wire.jpg" }     //hand
+ 
+   glow { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_G.png" }
+
+       normal { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_N.png" }
+       normal { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_N.png" }
+       normal { surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/normal.jpg" }   //hand
+
+     specular { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_S.png" }
+     specular { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/lasergun_S.png" }
+     specular { surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/spec.jpg" }     //hand
+
+   frame {   name "idle00" tile0 6146 tile1 6149 smoothduration 0.01 } 
+   anim  { frame0 "idle00" frame1 "idle08" fps 1 flag 0 }
+
+   // hud { tile0 6150 tile1 6151 xadd -0.15 yadd 1.36 zadd -0.88 angadd -37 }
+   hud { tile0 6146 tile1 6149 xadd 0.25 yadd 1.10 zadd -0.42 angadd -40 } 
+}
+
+texture 6152 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/laserflash.png" nocompress nodownsize } }
+
+// DUKEPLUS CANNON (6172)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/dp_cannon.md3" {
+   scale .75 shade 0
+   zadd 10
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/dp_cannon.jpg" }
+   frame { name "Frame0" tile 6172 }
+   hud { tile0 6172 tile1 6178 xadd 0.00 yadd 0.40 zadd 0.25 angadd 0 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/5162_stripeball.md3" {
+scale 3 shade 8
+skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/1817_cannonball.png" }
+frame { name "Frame0" tile 6179 }
+zadd -2
+}
+
+dummytilerange 6190 6200 480 360
+texture 6190 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/blood1.png" nocompress nodownsize } }
+texture 6191 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/blood2.png" nocompress nodownsize } }
+texture 6192 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/blood3.png" nocompress nodownsize } }
+texture 6193 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/blood4.png" nocompress nodownsize } }
+texture 6194 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/blood5.png" nocompress nodownsize } }
+texture 6195 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/blood6.png" nocompress nodownsize } }
+texture 6196 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/blood7.png" nocompress nodownsize } }
+texture 6197 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/blood8.png" nocompress nodownsize } }
+texture 6198 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/blood9.png" nocompress nodownsize } }
+texture 6199 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/blood10.png" nocompress nodownsize } }
+texture 6200 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/blood11.png" nocompress nodownsize } }
+
+texture 6214 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/dpblood1.png" nocompress nodownsize } }
+texture 6215 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/dpblood2.png" nocompress nodownsize } }
+
+// MINIGUN PICKUP (6207)
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/Minigun/pickup.md3" {
+scale 0.2
+skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/Minigun/minigun_D.png" }
+normal { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/Minigun/minigun_N.png" }
+specular { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/Minigun/minigun_S.png" }
+frame { name "none00" tile 6207 }
+}
+
+
+// MINIGUN HUD (6208)
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/Minigun/minigun.md3" {
+scale 0.85 shade 4
+skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/Minigun/minigun_D.png" }
+skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/wire.jpg" } //hand
+normal { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/Minigun/minigun_N.png" }
+normal { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/normal.jpg" } //hand
+specular { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/Minigun/minigun_S.png" }
+specular { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/spec.jpg" } //hand
+
+anim { frame0 "idle00" frame1 "idle07" fps 1 }
+frame { name "idle00" tile 6208 flags 0 smoothduration 0.01 }
+frame { name "fire01" tile 6209 flags 0 smoothduration 0.01 }
+frame { name "fire02" tile 6210 flags 0 smoothduration 0.01 }
+frame { name "fire03" tile 6211 flags 0 smoothduration 0.01 }
+
+hud { tile0 6208 tile1 6211 xadd 0.5 yadd 1.5 zadd 2.15 angadd 990 }
+}
+
+// BOUNDING BOX
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/crate1.MD2"
+{
+// scale 1.25
+scale 1.75
+skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/metalcrate.jpg" }
+skin { pal 30 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/0884crate.jpg" }
+frame { name "idle01" tile 6220 }
+}
+
+// UPGRADE BOXES
+model "DUKEPLUS_RESOURCES/GRAPHICS/healthbox.md3" {
+   scale 2.0 shade 0
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/maxhealth.png" }
+   frame { name "FRAME1" tile0 6222 tile1 6229 }
+}
+
+texture 6272 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/snowflake.png" nocompress nodownsize } }
+texture 6273 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/damages/scorch.png" nocompress nodownsize } }
+texture 6274 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/rpgmuzzleflash.png" nocompress nodownsize } }
+texture 6275 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/spark2.png" nocompress nodownsize } }
+texture 6276 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/damages/concrete_hole.png" nocompress nodownsize } }
+texture 6277 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/Spark.png" nocompress nodownsize } }
+texture 6278 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/damages/metal_hole2.png" nocompress nodownsize } }
+texture 6280 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/damages/wood_hole.png" nocompress nodownsize } }
+texture 6282 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/damages/electronic_hole.png" nocompress nodownsize } }
+texture 6283 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/damages/organic_hole.png" nocompress nodownsize } }
+
+// JIBS_FLESH1 
+ model "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/flesh1.md3" {
+  scale 6 shade 4 
+  zadd -2
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/flesh1.png" }
+  frame { name "idle" tile 6290 } 
+  anim { frame0 "f1" frame1 "f2" fps 0 flag 0 } 
+  frame { name "f1" tile 6289 } 
+ } 
+ 
+model "DUKEPLUS_RESOURCES/GRAPHICS/dukecan.md3"
+{
+  scale 8.0
+  shade 0
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/DukeCan.jpg" }
+  skin { pal 10 file "DUKEPLUS_RESOURCES/GRAPHICS/dukecan_red.jpg" }
+  skin { pal 40 file "DUKEPLUS_RESOURCES/GRAPHICS/DukeCan_bust.jpg" } // opened can
+  skin { pal 50 file "DUKEPLUS_RESOURCES/GRAPHICS/dukecan_bust_red.jpg" } // opened can
+  frame { name "FRAME1" tile 6300 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/dukecan.md3"
+{
+  scale 8.0
+  zadd 1 // can on its side
+  shade 0
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/DukeCan.jpg" }
+  skin { pal 10 file "DUKEPLUS_RESOURCES/GRAPHICS/dukecan_red.jpg" }
+  skin { pal 40 file "DUKEPLUS_RESOURCES/GRAPHICS/DukeCan_bust.jpg" } // opened can
+  skin { pal 50 file "DUKEPLUS_RESOURCES/GRAPHICS/dukecan_bust_red.jpg" } // opened can
+  frame { name "FRAME1" tile 6301 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/dukecan_bust.md3" // crushed can
+{
+  scale 8.0
+  shade 0
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/DukeCan_bust.jpg" }
+  skin { pal 10 file "DUKEPLUS_RESOURCES/GRAPHICS/dukecan_bust_red.jpg" }
+  frame { name "FRAME1" tile 6302 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/scrap4.md3"
+ {
+   scale 10 shade 3
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/scrap4.png" }
+   anim { frame0 "FRAME2" frame1 "FRAME6" fps 15 flag 0 }
+   anim { frame0 "FRAME6" frame1 "FRAME9" fps 15 flag 0 }
+   // frame { name "FRAME2" tile0 2412 tile1 2415 }
+   frame { name "FRAME6" tile 6303 }
+   frame { name "FRAME1" tile 6304 }
+ }
+ 
+model "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/scrap3.md3"
+ {
+   scale 10 shade 3
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/scrap3.png" }
+   anim { frame0 "FRAME2" frame1 "FRAME6" fps 15 flag 0 }
+   anim { frame0 "FRAME6" frame1 "FRAME9" fps 15 flag 0 }
+   // frame { name "FRAME2" tile0 2408 tile1 2411 }
+   frame { name "FRAME6" tile 6307 }
+   frame { name "FRAME1" tile0 6308 tile1 6308 }
+ }
+
+// BOX
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/crate1.MD2"
+{
+  // scale 1.25
+  scale 5.00
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/metalcrate.jpg" }
+   skin { pal 30 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/0884crate.jpg" }
+  frame { name "idle01"  tile 6314 }
+  frame { name "idle01"  tile 6315 }
+  frame { name "idle01"  tile 6316 }
+  frame { name "idle01"  tile 6317 }
+}
+
+// fuse
+model "DUKEPLUS_RESOURCES/GRAPHICS/flare.md3" {
+   scale 10 shade 8 zadd 4
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/fuse.png" }
+   // glow { file "DUKEPLUS_RESOURCES/GRAPHICS/fuse_g.png" }
+   frame { name "FRAME0" tile 6319 }
+   //anim { frame0 "FRAME1" frame1 "FRAME16" fps 25 flags 0 }
+   //frame { name "FRAME1" tile 6320 }
+}
+
+texture 6231 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/Spark.png" nocompress nodownsize } }
+
+// pine tree (6232)
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/pinetree/pinetree.md3" {
+   scale 0.6 shade 5
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/pinetree/skin1.png" }
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/pinetree/skin2.png" }
+   frame { name "frame01" tile 6232 }
+}
+
+// snowy pine tree (6233)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/pinetree/pinetree.md3" {
+   scale 0.6 shade 5
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/pinetree/skin1b.png" }
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/pinetree/skin2b.png" }
+   frame { name "frame01" tile 6233 }
+}
+
+// dead tree (6234)
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/deadtree/deadtree.md2" {
+   scale 1 shade 5
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/deadtree/skin1.png" }
+   skin { pal 31 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/deadtree/skin2.png" }
+   frame { name "frame01" tile 6234 }
+}
+
+// dead tree 2 (6235)
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/deadtree/deadtree.md2" {
+   scale 1 shade 5
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/deadtree/skin2.png" }
+   frame { name "frame01" tile 6235 }
+}
+
+// Tree 5 (6236)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/dctree/3656_tree.md3" { 
+   scale 1.0 shade 0 
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/dctree/3656_tree.png" } 
+   frame { name "FRAME1" tile 6236 }
+}
+
+// fern (6237)
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/fern/fern.md2" {
+   scale 0.8 shade 2
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/fern/fern.png" }
+   frame { name "frame01" tile 6237 }
+}
+
+// fog (6238)
+
+texture 6238 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/fog.png" } }
+
+// scrap metal barrier (6239)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/6239.md3" {
+   scale 0.7 shade 0
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/6239.png" }
+   frame { name "idle" tile 6239 }
+}
+
+// sandbags (6240)
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/6240.md2" {
+   scale 1 shade 0
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/6240.png" }
+   frame { name "frame01" tile 6240 }
+}
+
+// land mine  (6241)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/mine_dropped.md2" {
+   scale 1 shade 0
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/mineskin.png" }
+   frame { name "frame01" tile 6241 }
+}
+
+// FLAK GUN (6242)
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/88flak_env.md3" {
+   scale 1 shade 0
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/mineskin.png" }
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/flakbarrel.png" }
+   frame { name "frame01" tile 6242 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/88flak_env.md3" {
+   scale 1 shade 0
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/mineskin.png" }
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/flakbarrel_fire.png" }
+   frame { name "frame01" tile 6243 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/trees/drzewo1.md3"
+{
+   scale 4 shade 5
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/trees/tree1.png" }
+   frame { name "FRAME1" tile 6244 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/trees/drzewo2.md3"
+{
+   scale 4
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/trees/tree2.png" }
+   frame { name "FRAME1" tile 6245 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/trees/drzewo4.md3"
+{
+   scale 6 shade 3
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/trees/tree4.png" }
+   frame { name "FRAME1" tile 6246 }
+}
+
+// Boulder
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/rocks/boulder.md3"
+{
+   scale 50.0 shade 10 zadd 0
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/rocks/ack_riverrock.dds" }
+   frame { name "(from 3DSMax)" tile 6247 }
+}
+
+// Boulder2
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/rocks/boulder2.md3"
+{
+   scale 25.0 shade 10 zadd 0
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/rocks/ack_riverrock.dds" }
+   frame { name "(from 3DSMax)" tile 6248 }
+}
+
+dummytilerange 6249 6251 128 64
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/couches/couch1.md3" 
+{
+scale 1
+skin { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/couches/fabric.jpg"  }
+skin { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/couches/leather.jpg" }
+detail { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/civilians/fabric.png" scale 0.1 }
+detail { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/civilians/fabric.png" scale 0.1 }
+frame { frame "MilkShape 3D" tile 6249 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/couches/couch2.md3" 
+{
+scale 1
+skin { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/couches/fabric.jpg"  }
+skin { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/couches/couch3.jpg" }
+skin { surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/couches/leather.jpg" }
+
+detail { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/civilians/fabric.png" scale 0.1 }
+detail { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/civilians/fabric.png" scale 0.1 }
+detail { surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/wood_h3.png" scale 0.1 }
+
+frame { frame "MilkShape 3D" tile 6250 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/couches/couch4.md3" 
+{
+scale 1.25 shade 7
+skin { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/couches/couch2.jpg" } }
+
+frame { frame "MilkShape 3D" tile 6251 }
+}
+
+dummytilerange 6252 6254 64 64
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/beds/bed.md3" 
+{
+scale 2
+detail { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/beds/paint.png" scale 0.05 }
+skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/beds/bed.png" }
+frame { name "Idle" tile 6252 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/beds/br_bed1.md3"
+{
+  scale 1.0 shade 5
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/beds/br_bed1.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/beds/br_spread1.jpg" }
+  frame { name "idle01" tile 6253 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/beds/br_bed1.md3"
+{
+  scale 1.0 shade 5
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/beds/br_bed1.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/beds/br_spread3.jpg" }
+  frame { name "idle01" tile 6254 }
+}
+
+dummytile 6255 64 32
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_bench/br_bench.md3"
+{
+scale 1.0 shade 3
+skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_bench/benchskin.jpg" }
+frame { name "MilkShape 3D" tile 6255 }
+}
+
+texture 6318 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/spark2.png" nocompress nodownsize } }
+texture 6320 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/PLUS.png" nocompress nodownsize } }
+
+
+texture 6326 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/firelaser.png" nocompress nodownsize } }
+texture 6327 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/smoke/ssmoke0001.png" nocompress nodownsize } }
+texture 6328 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/smoke/ssmoke0002.png" nocompress nodownsize } }
+texture 6329 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/smoke/ssmoke0003.png" nocompress nodownsize } }
+texture 6330 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/smoke/ssmoke0004.png" nocompress nodownsize } }
+texture 6331 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/smoke/ssmoke0005.png" nocompress nodownsize } }
+texture 6332 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/smoke/ssmoke0006.png" nocompress nodownsize } }
+texture 6333 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/smoke/ssmoke0007.png" nocompress nodownsize } }
+texture 6334 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/smoke/ssmoke0010.png" nocompress nodownsize } }
+texture 6335 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/smoke/ssmoke0011.png" nocompress nodownsize } }
+texture 6336 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/smoke/ssmoke0012.png" nocompress nodownsize } }
+texture 6337 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/smoke/ssmoke0013.png" nocompress nodownsize } }
+texture 6338 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/smoke/ssmoke0014.png" nocompress nodownsize } }
+
+texture 6339 { 
+pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick1.png" nocompress nodownsize } 
+pal 10 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick1pal10.png" nocompress nodownsize } 
+pal 11 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick1pal11.png" nocompress nodownsize } 
+pal 12 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick1pal12.png" nocompress nodownsize } 
+pal 13 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick1pal13.png" nocompress nodownsize } 
+pal 14 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick1pal14.png" nocompress nodownsize } 
+pal 15 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick1pal15.png" nocompress nodownsize }
+pal 16 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick1pal16.png" nocompress nodownsize } 
+pal 21 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick1pal21.png" nocompress nodownsize }
+pal 23 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick1pal23.png" nocompress nodownsize }
+}
+texture 6340 {
+pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick2.png" nocompress nodownsize } 
+pal 10 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick2pal10.png" nocompress nodownsize } 
+pal 11 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick2pal11.png" nocompress nodownsize } 
+pal 12 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick2pal12.png" nocompress nodownsize } 
+pal 13 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick2pal13.png" nocompress nodownsize } 
+pal 14 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick2pal14.png" nocompress nodownsize }
+pal 15 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick2pal15.png" nocompress nodownsize } 
+pal 16 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick2pal16.png" nocompress nodownsize }
+pal 21 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick2pal21.png" nocompress nodownsize } 
+pal 23 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick2pal23.png" nocompress nodownsize }
+}
+texture 6341 { 
+pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick3.png" nocompress nodownsize } 
+pal 10 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick3pal10.png" nocompress nodownsize } 
+pal 11 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick3pal11.png" nocompress nodownsize } 
+pal 12 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick3pal12.png" nocompress nodownsize } 
+pal 13 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick3pal13.png" nocompress nodownsize } 
+pal 14 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick3pal14.png" nocompress nodownsize } 
+pal 15 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick3pal15.png" nocompress nodownsize } 
+pal 16 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick3pal16.png" nocompress nodownsize } 
+pal 21 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick3pal21.png" nocompress nodownsize } 
+pal 23 { file "DUKEPLUS_RESOURCES/GRAPHICS/kick/kick3pal23.png" nocompress nodownsize }
+}
+
+texture 6346 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/firelaser.png" nocompress nodownsize } }
+texture 6347 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/rpgmuzzleflash.png" nocompress nodownsize } }
+
+// pigcop jibs Dr. Kill & ___
+
+dummytilerange 6400 6409 32 32
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/Pig1.md3" {
+  scale 30 shade 0
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead.png" }
+  skin { pal 10 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_10.png" }
+  skin { pal 11 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_11.png" }
+  skin { pal 12 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_12.png" }
+  skin { pal 13 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_13.png" }
+  skin { pal 14 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_14.png" }
+  skin { pal 15 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_15.png" }
+  skin { pal 16 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_16.png" }
+  skin { pal 17 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_17.png" }
+  skin { pal 19 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_19.png" }
+  skin { pal 20 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_20.png" }
+  skin { pal 18 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_12.png" }
+  skin { pal 21 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_21.png" }
+  skin { pal 22 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_11.png" }
+  skin { pal 23 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pighead_23.png" }
+  anim { frame0 "f1" frame1 "f4" fps 8 flag 0 }
+  frame { name "f1" tile 6400 }
+  frame { name "idle" tile 6401 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/Pig2.md3" {
+  scale 30 shade 0
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower.png" }
+  skin { pal 10 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_10.png" }
+  skin { pal 11 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_11.png" }
+  skin { pal 12 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_12.png" }
+  skin { pal 13 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_13.png" }
+  skin { pal 14 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_14.png" }
+  skin { pal 15 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_15.png" }
+  skin { pal 16 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_16.png" }
+  skin { pal 17 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_17.png" }
+  skin { pal 19 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_19.png" }
+  skin { pal 20 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_20.png" }
+  skin { pal 18 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_12.png" }
+  skin { pal 21 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_21.png" }
+  skin { pal 22 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_11.png" }
+  skin { pal 23 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_23.png" }
+  anim { frame0 "f1" frame1 "f4" fps 8 flag 0 }
+  frame { name "f1" tile 6402 }
+  frame { name "idle" tile 6403 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/Pig3.md3" {
+  scale 30 shade 0
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper.png" }
+  skin { pal 10 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_10.png" }
+  skin { pal 11 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_11.png" }
+  skin { pal 12 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_12.png" }
+  skin { pal 13 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_13.png" }
+  skin { pal 14 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_14.png" }
+  skin { pal 15 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_15.png" }
+  skin { pal 16 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_16.png" }
+  skin { pal 17 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_17.png" }
+  skin { pal 19 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_19.png" }
+  skin { pal 20 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_20.png" }
+  skin { pal 18 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_12.png" }
+  skin { pal 21 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_21.png" }
+  skin { pal 22 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_11.png" }
+  skin { pal 23 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_23.png" }
+  anim { frame0 "f1" frame1 "f4" fps 8 flag 0 }
+  frame { name "f1" tile 6404 }
+  frame { name "idle" tile 6405 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/Pig4.md3" {
+  scale 30 shade 0
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper.png" }
+  skin { pal 10 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_10.png" }
+  skin { pal 11 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_11.png" }
+  skin { pal 12 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_12.png" }
+  skin { pal 13 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_13.png" }
+  skin { pal 14 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_14.png" }
+  skin { pal 15 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_15.png" }
+  skin { pal 16 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_16.png" }
+  skin { pal 17 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_17.png" }
+  skin { pal 19 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_19.png" }
+  skin { pal 20 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_20.png" }
+  skin { pal 18 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_12.png" }
+  skin { pal 21 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_21.png" }
+  skin { pal 22 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_11.png" }
+  skin { pal 23 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/pigupper_23.png" }
+  anim { frame0 "f1" frame1 "f4" fps 8 flag 0 }
+  frame { name "f1" tile 6406 }
+  frame { name "idle" tile 6407 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/Pig5.md3" {
+  scale 30 shade 0
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower.png" }
+  skin { pal 10 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_10.png" }
+  skin { pal 11 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_11.png" }
+  skin { pal 12 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_12.png" }
+  skin { pal 13 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_13.png" }
+  skin { pal 14 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_14.png" }
+  skin { pal 15 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_15.png" }
+  skin { pal 16 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_16.png" }
+  skin { pal 17 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_17.png" }
+  skin { pal 19 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_19.png" }
+  skin { pal 20 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_20.png" }
+  skin { pal 18 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_12.png" }
+  skin { pal 21 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_21.png" }
+  skin { pal 22 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_11.png" }
+  skin { pal 23 file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/piglower_23.png" }
+  anim { frame0 "f1" frame1 "f4" fps 8 flag 0 }
+  frame { name "f1" tile 6408 }
+  frame { name "idle" tile 6409 }
+}
+
+dummytilerange 6410 6413 128 32
+
+// Sky Car
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/2491_skycar.md3" {
+   scale 3 shade 0
+   skin { surface 0 pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/skycar_skin.png" }
+   skin { surface 1 pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/gas_fire.png" }
+   glow { surface 1 pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/gas_fire_g.png" }
+   skin { surface 2 pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/gas_fire.png" }
+   glow { surface 2 pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/gas_fire_g.png" }
+   
+   skin { surface 3 pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/1960_reconcar.png" }
+   anim { frame0 "Frame1" frame1 "Frame8" fps 1 flags 0 }
+   frame { name "Frame0" tile 6410 }
+   frame { name "Frame1" tile 6411 }
+   frame { name "Frame0" tile 6412 }
+   frame { name "Frame1" tile 6413 }
+   zadd 9  
+}
+
+dummytile 6414 128 64 // blocking sprite
+
+dummytile 6415 64 16
+// Rocket bomb
+definemodel "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/rocket.md2" 0.5 0
+definemodelskin 0 "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/rocket.png"
+definemodelanim "idle1" "idle2" 22 0
+definemodelframe "idle1" 6415 6415 // BOMB
+
+dummytile 6416 32 32
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/blockb.md3" { 
+   scale 6.25 shade 0 
+   zadd 4
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/ice.png" }
+   frame { name "FRAME1" tile 6416 }
+}
+
+dummytile 6417 8 8
+dummytile 6418 128 128
+texture 6418 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/rpgmuzzleflash.png" nocompress nodownsize } }
+dummytile 6419 128 128
+texture 6419 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/skycar_ring.png" nocompress nodownsize } }
+dummytilerange 6420 6421 32 32
+model "DUKEPLUS_RESOURCES/GRAPHICS/railtailx2.md3" { 
+   scale 3.0 shade 0 
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/ice.png" }
+   glow { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/ice.png" }
+   
+   frame { name "FRAME1" tile 6420 }
+   frame { name "FRAME1" tile 6421 }
+}
+
+dummytile 6422 32 32
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/shoot.md3" {
+   scale 12 shade 5
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/ice.png" }
+   glow { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/ice.png" }
+   frame { name "FRAME1" tile 6422 smoothduration 0.0 }
+   anim { frame0 "FRAME1" frame1 "FRAME28" fps 25 flags 0 }
+}
+
+dummytilerange 6423 6424 32 32
+model "DUKEPLUS_RESOURCES/GRAPHICS/railtailx5.md3" { 
+
+   scale 3.0 shade 0 
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/laz.png" }
+   skin { pal 3 file "DUKEPLUS_RESOURCES/GRAPHICS/laz2.png" }
+   glow { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/laz.png" }
+   glow { pal 3 file  "DUKEPLUS_RESOURCES/GRAPHICS/laz2.png" }
+   frame { name "FRAME1" tile 6423 }
+   frame { name "FRAME1" tile 6424 }
+}
+
+dummytilerange 6425 6466 192 192
+texture 6425 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1890.png" nocompress nodownsize } }
+texture 6426 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1891.png" nocompress nodownsize } }
+texture 6427 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1892.png" nocompress nodownsize } }
+texture 6428 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1893.png" nocompress nodownsize } }
+texture 6429 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1894.png" nocompress nodownsize } }
+texture 6430 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1895.png" nocompress nodownsize } }
+texture 6431 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1896.png" nocompress nodownsize } }
+texture 6432 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1897.png" nocompress nodownsize } }
+texture 6433 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1898.png" nocompress nodownsize } }
+texture 6434 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1899.png" nocompress nodownsize } }
+texture 6435 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1900.png" nocompress nodownsize } }
+texture 6436 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1901.png" nocompress nodownsize } }
+texture 6437 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1902.png" nocompress nodownsize } }
+texture 6438 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1903.png" nocompress nodownsize } }
+texture 6439 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1904.png" nocompress nodownsize } }
+texture 6440 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1905.png" nocompress nodownsize } }
+texture 6441 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1906.png" nocompress nodownsize } }
+texture 6442 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1907.png" nocompress nodownsize } }
+texture 6443 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1908.png" nocompress nodownsize } }
+texture 6444 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1909.png" nocompress nodownsize } }
+texture 6445 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl1/1910.png" nocompress nodownsize } }
+texture 6446 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1890.png" nocompress nodownsize } }
+texture 6447 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1891.png" nocompress nodownsize } }
+texture 6448 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1892.png" nocompress nodownsize } }
+texture 6449 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1893.png" nocompress nodownsize } }
+texture 6450 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1894.png" nocompress nodownsize } }
+texture 6451 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1895.png" nocompress nodownsize } }
+texture 6452 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1896.png" nocompress nodownsize } }
+texture 6453 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1897.png" nocompress nodownsize } }
+texture 6454 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1898.png" nocompress nodownsize } }
+texture 6455 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1899.png" nocompress nodownsize } }
+texture 6456 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1900.png" nocompress nodownsize } }
+texture 6457 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1901.png" nocompress nodownsize } }
+texture 6458 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1902.png" nocompress nodownsize } }
+texture 6459 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1903.png" nocompress nodownsize } }
+texture 6460 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1904.png" nocompress nodownsize } }
+texture 6461 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1905.png" nocompress nodownsize } }
+texture 6462 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1906.png" nocompress nodownsize } }
+texture 6463 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1907.png" nocompress nodownsize } }
+texture 6464 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1908.png" nocompress nodownsize } }
+texture 6465 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1909.png" nocompress nodownsize } }
+texture 6466 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/new_explosions/expl2/1910.png" nocompress nodownsize } }
+
+dummytile 6467 32 32
+texture 6467 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/arrow.png" } }
+//blood splashes
+texture 6284 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/0013bck.png" } }
+texture 6285 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/0013bck2.png" } }
+texture 6286 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/0013bck3.png" } }
+texture 6287 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/0013bck4.png" } }
+texture 6288 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/BLOOD/cblood1.png" } }
+
+dummytilerange 6470 6473 32 32
+// SHOTSPARK1 (2595-2598)
+model "DUKEPLUS_RESOURCES/GRAPHICS/2595_shotspark1.md3" {
+  scale 90 shade 3
+  zadd .8
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/2595_shotspark1.png" }
+  glow { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/2595_shotspark1.png" }
+  anim { frame0 "frame3" frame1 "frame21" fps 1 flag 0 }
+  frame { name "frame3" tile 6470 tile1 6470 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/2595_shotspark1.md3" {
+  scale 90 shade 3
+  zadd .6
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/2595_shotspark1.png" }
+  glow { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/2595_shotspark1.png" }
+  anim { frame0 "frame3" frame1 "frame21" fps 1 flag 0 }
+  frame { name "frame3" tile 6471 tile1 6471 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/2595_shotspark1.md3" {
+  scale 90 shade 3
+  zadd .3
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/2595_shotspark1.png" }
+  glow { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/2595_shotspark1.png" }
+  anim { frame0 "frame3" frame1 "frame21" fps 1 flag 0 }
+  frame { name "frame3" tile 6472 tile1 6472 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/2595_shotspark1.md3" {
+  scale 90 shade 3
+  zadd 1.2
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/2595_shotspark1.png" }
+  glow { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/2595_shotspark1.png" }
+  anim { frame0 "frame3" frame1 "frame21" fps 1 flag 0 }
+  frame { name "frame3" tile 6473 tile1 6473 }
+}
+
+dummytilerange 6478 6497 120 120
+texture 6478 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10002.png" } }
+texture 6479 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10004.png" } }
+texture 6480 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10006.png" } }
+texture 6481 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10008.png" } }
+texture 6482 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10010.png" } }
+texture 6483 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10012.png" } }
+texture 6484 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10014.png" } }
+texture 6485 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10016.png" } }
+texture 6486 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10018.png" } }
+texture 6487 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10020.png" } }
+texture 6488 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10022.png" } }
+texture 6489 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10024.png" } }
+texture 6490 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10026.png" } }
+texture 6491 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10028.png" } }
+texture 6492 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10030.png" } }
+texture 6493 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10032.png" } }
+texture 6494 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10034.png" } }
+texture 6495 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10036.png" } }
+texture 6496 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10038.png" } }
+texture 6497 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/special/transport10040.png" } }
+
+
+dummytilerange 6556 6576 90 90
+texture 6556 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/splash0008.png" } }
+texture 6557 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/splash0010.png" } }
+texture 6558 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/splash0012.png" } }
+texture 6559 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/splash0014.png" } }
+texture 6560 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/splash0016.png" } }
+texture 6561 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/splash0018.png" } }
+texture 6562 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/splash0020.png" } }
+texture 6563 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/splash0022.png" } }
+texture 6564 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/splash0024.png" } }
+texture 6565 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/splash0026.png" } }
+texture 6566 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/splash0028.png" } }
+texture 6567 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/splash0030.png" } }
+texture 6568 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/circle1.png" } }
+texture 6569 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/circle2.png" } }
+texture 6570 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/circle3.png" } }
+texture 6571 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/circle4.png" } }
+texture 6572 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/circle5.png" } }
+texture 6573 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/circle6.png" } }
+texture 6574 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/circle7.png" } }
+texture 6575 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/circle8.png" } }
+texture 6576 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/splash/circle9.png" } }
+
+// IMPERIUM GUN
+
+// IMP Gun primary fire trail
+dummytilerange 6800 6801 32 32
+texture 6800 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/laserflash.png" } }
+
+dummytilerange 6840 6849 64 64
+dummytilerange 6850 6852 64 32
+dummytile 6853 64 64 // alt projectile
+dummytile 6854 28 28
+dummytile 6855 128 128
+dummytile 6856 16 16
+dummytile 6859 16 16
+dummytile 6860 96 96
+
+// IMP Gun HUD first stage
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/imp_gun_hud.md3" {
+   scale 30.0 shade 6
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/hand_skin.png" }
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin2.png" }
+   glow { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin2_g.png" }   
+   frame { name "FRAME1" tile 6844 smoothduration 0.00 }
+   frame { name "SHOOT1" tile 6845 smoothduration 0.00 }
+   anim { frame0 "SHOOT1" frame1 "SHOOT9" fps 25 flags 1 }
+   anim { frame0 "FRAME1" frame1 "FRAME1" fps 25 flags 0 }
+   frame { name "WOW1" tile 6846 smoothduration 0.00 }
+   anim { frame0 "WOW1" frame1 "WOW106" fps 25 flags 1 }
+   hud { tile 6844 xadd  -0.02 yadd .1 zadd 0.2 angadd 1024 }
+   hud { tile 6845 xadd  -0.02 yadd .1 zadd 0.2 angadd 1024 }
+   hud { tile 6846 xadd -0.12 yadd .05 zadd 0.2 angadd 1024 }
+}
+
+// IMP Gun HUD second stage
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/imp_gun_hud.md3" {
+   scale 30.0 shade 6
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/hand_skin.png" }
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin3.png" }
+   glow { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin3_g.png" }   
+   frame { name "FRAME1" tile 6847 smoothduration 0.00 }
+   frame { name "SHOOT1" tile 6848 smoothduration 0.00 }
+   anim { frame0 "SHOOT1" frame1 "SHOOT9" fps 25 flags 1 }
+   anim { frame0 "FRAME1" frame1 "FRAME1" fps 25 flags 0 }
+   frame { name "WOW1" tile 6849 smoothduration 0.00 }
+   anim { frame0 "WOW1" frame1 "WOW106" fps 25 flags 1 }
+   hud { tile 6847 xadd -0.02 yadd .1 zadd 0.2 angadd 1024 }
+   hud { tile 6848 xadd -0.02 yadd .1 zadd 0.2 angadd 1024 }
+   hud { tile 6849 xadd -0.12 yadd .05 zadd 0.2 angadd 1024 }
+}
+
+// IMP Gun HUD final stage
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/imp_gun_hud.md3" {
+   scale 30.0 shade 6
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/hand_skin.png" }
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin4.png" }
+   glow { surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin4_g.png" }   
+   frame { name "FRAME1" tile 6840 smoothduration 0.00 }
+   frame { name "SHOOT1" tile 6841 smoothduration 0.00 }
+   anim { frame0 "SHOOT1" frame1 "SHOOT9" fps 25 flags 1 }
+   anim { frame0 "FRAME1" frame1 "FRAME1" fps 25 flags 0 }
+   frame { name "BSHOOT1" tile 6842 smoothduration 0.00 }
+   anim { frame0 "BSHOOT1" frame1 "BSHOOT57" fps 60 flags 0 }
+   frame { name "WOW1" tile 6843 smoothduration 0.00 }
+   anim { frame0 "WOW1" frame1 "WOW106" fps 25 flags 1 }
+   hud { tile 6840 xadd -0.02 yadd .1 zadd 0.2 angadd 1024 }
+   hud { tile 6841 xadd -0.02 yadd .1 zadd 0.2 angadd 1024 }
+   hud { tile 6842 xadd -0.02 yadd .1 zadd 0.2 angadd 1024 }
+   hud { tile 6843 xadd -0.12 yadd .05 zadd 0.2 angadd 1024 }
+}
+
+
+// IMP Gun stage 0 pickup
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/IMP_pickup1.md3" {
+   scale 20 shade 8
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin4.png" }
+   glow { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin4_g.png" }
+   frame { name "FRAME1" tile 6216 }
+}
+
+// IMP Gun ammo
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/IMP_ammo.md3" {
+   scale 30 shade 8
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/ammo_skin.png" }
+   glow { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/ammo_skin_g.png" }
+   frame { name "FRAME1" tile 6217 }
+}
+
+// complete IMP Gun
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/imp_gun_pickup.md3" {
+   scale 30 shade 8
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin4.png" }
+   glow { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin4_g.png" }
+   frame { name "FRAME1" tile 6219 }
+}
+
+
+// IMP Gun stage 1 pickup
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/IMP_cannon.md3" {
+   scale 20 shade 8
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin4.png" }
+   glow { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin4_g.png" }
+   frame { name "FRAME1" tile 6837 }
+}
+
+// IMP Gun stage 2 pickup
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/IMP_pwrup1.md3" {
+   scale 20 shade 8
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin4.png" }
+   glow { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin4_g.png" }
+   frame { name "FRAME1" tile 6838 }
+}
+
+// IMP Gun stage 3 pickup
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/IMP_pwrup2.md3" {
+   scale 20 shade 8
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin4.png" }
+   glow { surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/gun_skin4_g.png" }
+   frame { name "FRAME1" tile 6839 }
+}
+
+
+/*
+// IMP Gun alt fire projectile
+model "imperium/models/ImpGun/bshoot.md3" {
+   scale 30 shade 8
+   skin { pal 0 file "imperium/models/ImpGun/skin_shoot.png" }
+   glow { surface 0 file "imperium/models/ImpGun/skin_shoot.png" }
+   frame { name "FRAME1" tile 3853 smoothduration 0.0 }
+   anim { frame0 "FRAME1" frame1 "FRAME28" fps 25 flags 0 }
+}
+
+// IMP Gun primary fire projectile
+model "imperium/models/ImpGun/shoot.md3" {
+   scale 10 shade 8
+   skin { pal 0 file "imperium/models/ImpGun/skin_shoot2.png" }
+   glow { surface 0 file "imperium/models/ImpGun/skin_shoot2.png" }
+   frame { name "FRAME1" tile 3853 smoothduration 0.0 }
+   anim { frame0 "FRAME1" frame1 "FRAME28" fps 25 flags 0 }
+}
+
+*/
+
+
+
+texture 6853 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/lightglow.png" } }
+texture 6854 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/lightglow.png" } }
+texture 6855 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/lightglow.png" } }
+
+texture 6856 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/Spark.png" } }
+
+// sphere model
+dummytile 6857 16 16
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/5162_stripeball.md3" {
+scale 48 shade 0
+zadd -4
+skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/powexplosion.png" }
+anim { frame0 "Frame0" frame1 "Frame0" fps 1 flag 0 }
+frame { name "Frame0" tile 6857 }
+}
+
+texture 6859 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/Spark.png" } }
+texture 6860 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/Spark.png" } }
+
+// blackhawk
+dummytile 6864 64 64
+dummytile 6865 64 64
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/black_hawk.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/black_hawk.bmp" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 30 flags 0 }
+   frame { name "idle01" tile 6865 }
+
+   anim { frame0 "1" frame1 "30" fps 30 flags 0 }
+   frame { name "1" tile0 6864 tile1 6865 }
+
+}
+
+// hires water
+
+dummytilerange 6866 6897 64 64
+texture 6866 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_001.png" } }
+texture 6867 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_002.png" } }
+texture 6868 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_003.png" } }
+texture 6869 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_004.png" } }
+texture 6870 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_005.png" } }
+texture 6871 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_006.png" } }
+texture 6872 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_007.png" } }
+texture 6873 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_008.png" } }
+texture 6874 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_009.png" } }
+texture 6875 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_010.png" } }
+texture 6876 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_011.png" } }
+texture 6877 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_012.png" } }
+texture 6878 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_013.png" } }
+texture 6879 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_014.png" } }
+texture 6880 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_015.png" } }
+texture 6881 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_016.png" } }
+texture 6882 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_017.png" } }
+texture 6883 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_018.png" } }
+texture 6884 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_019.png" } }
+texture 6885 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_020.png" } }
+texture 6886 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_021.png" } }
+texture 6887 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_022.png" } }
+texture 6888 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_023.png" } }
+texture 6889 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_024.png" } }
+texture 6890 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_025.png" } }
+texture 6891 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_026.png" } }
+texture 6892 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_027.png" } }
+texture 6893 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_028.png" } }
+texture 6894 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_029.png" } }
+texture 6895 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_030.png" } }
+texture 6896 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_031.png" } }
+texture 6897 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/water/water-002_032.png" } }
+animtilerange 6866 6897 2 2
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/railtailx3.md3" { 
+   scale 3.0 shade 0 
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/railtail.png" }
+   glow { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/ImpGun/railtail.png" }
+   frame { name "FRAME1" tile 6801 }
+}
+
+dummytile 8005 16 16 // shootme sprite
+dummytile 8006 32 32 // ground saw blade
+dummytile 8007 32 32 // saw blade projectile
+model "DUKEPLUS_RESOURCES/GRAPHICS/saw1.md3" {
+   scale 5.0
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/saw.jpg" }
+   frame { name "Frame0" tile0 8006 tile1 8007 }
+}
+
+dummytile 8030 35 35
+dummytilerange 8032 8043 32 64
+texture 8032 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/s_dn_1.png" nocompress nodownsize } }
+texture 8033 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/s_dn_2.png" nocompress nodownsize } }
+texture 8034 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/s_dn_3.png" nocompress nodownsize } }
+texture 8035 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/s_dn_4.png" nocompress nodownsize } }
+texture 8036 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/s_dn_5.png" nocompress nodownsize } }
+texture 8037 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/s_up_1.png" nocompress nodownsize } }
+texture 8038 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/s_up_2.png" nocompress nodownsize } }
+texture 8039 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/s_up_3.png" nocompress nodownsize } }
+texture 8040 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/s_up_4.png" nocompress nodownsize } }
+texture 8041 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/s_up_5.png" nocompress nodownsize } }
+texture 8042 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/s_dn_a.png" nocompress nodownsize } }
+texture 8043 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/s_up_a.png" nocompress nodownsize } }
+
+dummytile 8045 64 64
+texture 8045 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/lightglow.png" nocompress nodownsize } }
+
+
+
+dummytile 8055 64 64
+// Smoke effect from  sd_duke mod
+model "DUKEPLUS_RESOURCES/GRAPHICS/plane.md3" {
+  scale 270 shade 2
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/smoke4.png" nocompress nodownsize }
+  anim { frame0 "FRAME1" frame1 "FRAME6" fps 0 flag 0 }
+  frame { name "FRAME1" tile 8055 }
+}
+
+dummytile 8062 32 32
+dummytile 8063 32 32
+
+dummytile 8120 32 32
+
+// Flare
+dummytile 8121 64 16
+dummytile 8124 64 16
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/flare.md3" {
+   scale 3 shade 8
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/flare.png" }
+   glow { file "DUKEPLUS_RESOURCES/GRAPHICS/flare_g.png" }
+   frame { name "FRAME0" tile0 8121 tile1 8121 }
+   // frame { name "FRAME0" tile0 8124 tile1 8124 }
+   anim { frame0 "FRAME1" frame1 "FRAME16" fps 25 flags 0 }
+   frame { name "FRAME1" tile0 8124 tile1 8124 }
+}
+
+dummytilerange 8140 8151 33 21 // scraps 33 21
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/scrap4.md3"
+ {
+   scale 10 shade 3
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/scrap5.png" }
+   anim { frame0 "FRAME2" frame1 "FRAME6" fps 15 flag 0 }
+   anim { frame0 "FRAME6" frame1 "FRAME9" fps 15 flag 0 }
+   // frame { name "FRAME2" tile0 2416 tile1 2418 }
+   frame { name "FRAME6" tile 8150 }
+   frame { name "FRAME1" tile 8151 }
+ }
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/scrap6.md3"
+ {
+   scale 6 shade 3
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/scrap6.png" }
+   anim { frame0 "FRAME2" frame1 "FRAME6" fps 15 flag 0 }
+   anim { frame0 "FRAME6" frame1 "FRAME9" fps 15 flag 0 }
+   // frame { name "FRAME2" tile0 2390 tile1 2398 }
+   frame { name "FRAME2" tile0 6291 tile1 6299 }
+   frame { name "FRAME6" tile0 8140 tile1 8140 }
+   frame { name "FRAME1" tile 8141 }
+ }
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/scrap1.md3"
+ {
+   scale 10 shade 3
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/scrap1.png" }
+   anim { frame0 "FRAME2" frame1 "FRAME6" fps 15 flag 0 }
+   anim { frame0 "FRAME6" frame1 "FRAME9" fps 15 flag 0 }
+   // frame { name "FRAME2" tile0 2400 tile1 2403 }
+   frame { name "FRAME6" tile0 8142 tile1 8142 }
+   frame { name "FRAME1" tile 8143 }
+ }
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/scrap2.md3"
+ {
+   scale 10 shade 3
+   skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/scrap2.png" }
+   anim { frame0 "FRAME2" frame1 "FRAME6" fps 15 flag 0 }
+   anim { frame0 "FRAME6" frame1 "FRAME9" fps 15 flag 0 }
+   // frame { name "FRAME2" tile0 2404 tile1 2407 }
+   frame { name "FRAME6" tile 8144 }
+   frame { name "FRAME1" tile 8145 }
+ }
+ 
+ dummytile 8613 110 100
+texture 8613 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/shell_hud.png" nocompress nodownsize } }
+
+dummytile 8800 256 256
+texture 8800 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/mp5fire1.png" nocompress nodownsize } }
+
+dummytile 8830 88 25
+// CRUIZER SHOTGUN PICKUP
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/Cruizer_pickup.md3" {
+  scale 1.6
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/2barrel.png" } // 2barrel
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/3grips.png" }     // 3grips
+   skin { pal 0 surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/1rec.png" }     // 1rec
+   frame { name "MilkShape 3D" tile 8830 }
+}
+
+dummytile 8831 312 256
+texture 8831 { pal 0 { file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/shotgunmuzzleflash.png" nocompress nodownsize } }
+
+dummytile 8832 57 36
+// MP5AMMO
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/MP5CLIP.md3" {
+scale 0.75
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/mp5clips.png" }
+   frame { name "MilkShape 3D" tile 8832 }
+}
+
+dummytile 8833 88 24
+// MP5 PICKUP
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/mp5pick.md3" {
+ scale 4.0
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/mp5stock.png" } 
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/mp5body.png" }
+   skin { pal 0 surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/mp5clips.png" }
+   skin { pal 0 surface 3 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/mp5grip.png" }
+   frame { name "MilkShape 3D" tile 8833 }
+}
+
+// HUD MP5
+// dummytilerange 8835 8839 312 256
+dummytilerange 8835 8839 37 32
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/MP5.md3" {
+   scale 1.9
+   shade 3
+
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/arms256.png" }
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/mp5stock.png" } 
+   skin { pal 0 surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/mp5body.png" }
+   skin { pal 0 surface 3 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/mp5clips.png" }
+   skin { pal 0 surface 4 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/mp5grip.png" }
+   anim { frame0 "Idle" frame1 "Idle" fps 15 }
+   frame { name "Idle" tile 8835 flags 0 smoothduration 0.01 }
+   anim { frame0 "fire1" frame1 "fire4" fps 40 }
+   frame { name "fire1" tile 8836 flags 1 smoothduration 0.01 }
+   anim { frame0 "reload1" frame1 "reload20" fps 35 flags 1 }
+   frame { name "reload1" tile 8837 }
+   anim { frame0 "reload21" frame1 "reload40" fps 35 flags 1 }
+   frame { name "reload21" tile 8838 }
+   anim { frame0 "cold1" frame1 "cold11" fps 14 flags 1 }
+   frame { name "cold1" tile 8839 flags 1 smoothduration 0.01 }
+   hud { tile 8835 xadd -.15 yadd 1.2 zadd -0.40 angadd -16 } // idle
+   hud { tile 8836 xadd -.15 yadd 1.2 zadd -0.40 angadd -16 } // firing
+   hud { tile 8837 xadd -.15 yadd 1.0 zadd -0.40 angadd -16 } // reload part 1
+   hud { tile 8838 xadd -.15 yadd 1.0 zadd -0.40 angadd -16 } // reload part 2
+   hud { tile 8839 xadd -.15 yadd 1.15 zadd -0.40 angadd -8 } // butt
+}
+
+
+// HUD CRUIZER SHOTGUN
+//dummytilerange 8840 8847 312 256
+dummytilerange 8840 8847 37 32
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/Cruizer.md3" {
+ scale .9
+ shade 3
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/2barrel.png" } // 2barrel
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/3grips.png" }     // 3grips
+   skin { pal 0 surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/1rec.png" }     // 1rec
+   skin { pal 0 surface 3 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/shell.png" }  //shell
+   skin { pal 0 surface 4 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/arms256.png" specpower 1 specfactor 0.1 } //arms256
+  anim { frame0 "Idle1" frame1 "Idle1" fps 15 flags 0 }
+   frame { name "Idle1" tile 8840 smoothduration 0.0 }
+   anim { frame0 "shoot1" frame1 "pump8" fps 18 flags 1 } // frame1 "shoot6"
+   frame { name "shoot1" tile 8841 smoothduration 0.0 }
+   anim { frame0 "pump1" frame1 "pump8" fps 15 flags 1 smoothduration 0.0 }
+   frame { name "pump1" tile 8842 smoothduration 0.0 }
+   anim { frame0 "reload1" frame1 "reload5" fps 30 flags 1 } // complete first shell goes to reload 10
+   frame { name "reload1" tile 8843 smoothduration 0.0 }
+   anim { frame0 "reload6" frame1 "reload10" fps 11 flags 1 } // the part that repeats; holds 8 shells total
+   frame { name "reload6" tile 8844 smoothduration 0.0 }
+   anim { frame0 "reload10" frame1 "reload10" fps 11 flags 0 } // necessary to reset the reload animation
+   frame { name "reload10" tile 8845 smoothduration 0.0 }
+   anim { frame0 "reload11" frame1 "reload14" fps 15 flags 1 } // the hand returns to idle position from reloading
+   frame { name "reload11" tile 8846 smoothduration 0.0 }
+   anim { frame0 "pumpb1" frame1 "pumpb6" fps 15 flags 1 }
+   frame { name "pumpb1" tile 8847 smoothduration 0.0 }
+
+   hud { tile 8840  xadd 0.00 yadd 0.25 zadd -.40 angadd -16 }
+   hud { tile 8841  xadd 0.00 yadd 0.25 zadd -.40 angadd -16 }
+   hud { tile 8842  xadd 0.00 yadd 0.25 zadd -.40 angadd -16 }
+   hud { tile 8843  xadd 0.00 yadd 0.2 zadd -.40 angadd -16 }
+   hud { tile 8844  xadd 0.00 yadd 0.2 zadd -.40 angadd -16 }
+   hud { tile 8845  xadd 0.00 yadd 0.2 zadd -.40 angadd -16 }
+   hud { tile 8846  xadd 0.00 yadd 0.25 zadd -.40 angadd -16 }
+   hud { tile 8847  xadd 0.00 yadd 0.25 zadd -.40 angadd -16 }
+
+}
+
+dummytilerange 8826 8830 128 84
+
+// HUD DOUBLE BARRELED Shotgun (8826)
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/sawnoff.md3" {
+   scale 1.8 // 1.9
+   shade 3
+
+   skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/arms256.png" } // surface 0 is left arm
+   skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/newbarell.png" } // surface 1 part of gun
+   skin { pal 0 surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/arms256.png" } // surface 2 is right arm
+   skin { pal 0 surface 3 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/newbarell.png" } // surface 3 is part of gun
+   skin { pal 0 surface 4 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/shell_dirty.png" } // surface 4 is the shells
+
+   anim { frame0 "Idle" frame1 "Idle" fps 15 }
+   frame { name "Idle" tile 8826 flags 0 smoothduration 0.01 }
+   anim { frame0 "fire1" frame1 "fire6" fps 13 }
+   frame { name "fire1" tile 8827 flags 1 smoothduration 0.01 }
+   anim { frame0 "reload1" frame1 "reload18" fps 12 flags 1 }
+   frame { name "reload1" tile 8828 flags 0 smoothduration 0.01 }
+   anim { frame0 "cold1" frame1 "cold9" fps 12 flags 1 }
+   frame { name "cold1" tile 8829 flags 1 }
+   
+   hud { tile 8826 xadd 0.09 yadd 1.0 zadd -0.60 angadd -32 }
+   hud { tile 8827 xadd 0.09 yadd 1.0 zadd -0.60 angadd -32 }
+   hud { tile 8828 xadd 0.09 yadd 1.0 zadd -0.60 angadd -32 }
+   
+   // hud { tile 8829 xadd 0.09 yadd 1.0 zadd -0.72 angadd -16 }
+   hud { tile 8829 xadd 0.09 yadd 1.0 zadd -0.60 angadd -32 }
+}
+
+// SAWNOFF SHOTGUN PICKUP
+model "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/sawnoffpickup.md3" {
+  scale 3.0
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/newbarell.png" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/WEAPONS/sawnoffpickupmain.bmp" }
+  frame { name "MilkShape 3D" tile 6324 }
+}
+
+
+/*
+ model "DUKEPLUS_RESOURCES/GRAPHICS/dukecan_frag.md3" // can destruction
+ {
+  scale 10.0
+  shade 0
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/DukeCan_frag.jpg" }
+  skin { pal 10 file "DUKEPLUS_RESOURCES/GRAPHICS/dukecan_frag_red.jpg" }
+  frame { name "FRAME1" tile 8014 }
+  anim { frame0 "FRAME1" frame1 "FRAME6" fps 25 flags 1 }
+}
+*/
+
+// model "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/glass.md3"
+// {
+//  scale 3 shade 0
+//  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/SCRAPS/glass.png" }
+//  anim { frame0 "FRAME2" frame1 "FRAME9" fps 5 flag 0 }
+//  frame { name "FRAME2" tile 6422 }
+  // frame { name "FRAME1" tile 8377 }
+// }
+
+
+
+// ************** BEGINNING OF DNE MODELS ************** //
+
+
+dummytilerange 5286 5289 32 32
+
+// sheriff_002 (5240)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/sheriff/sheriff.md3"
+{
+  scale 2 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/sheriff/SHERIFF.jpg" }
+  glow { pal 40 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/sheriff/SHERIFFG.png" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5240 tile1 5240 }
+}
+
+// swat_van_002 (5241)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/swat_van/swat_van.md3"
+{
+  scale 2 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/swat_van/swatvan.png" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5241 tile1 5241 }
+}
+
+// chevelle_lowrider_002 (5243)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/chevelle_lowrider/chevelle_lowrider.md3"
+{
+  scale 2 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/chevelle_lowrider/chevelle_lowrider.png" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5243 tile1 5243 }
+}
+
+// _van_002 (5244)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/gmc_van/gmc_van.md3"
+{
+  scale 2 shade 11 zadd 0.5
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/gmc_van/gmc_van.jpg" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5244 tile1 5244 }
+}
+
+// nissan_002 (5245)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/nissan/nissan.md3"
+{
+  scale 2 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/nissan/nissan.bmp" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5245 tile1 5245 }
+}
+
+// taxi_cab_002 (5246)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/taxi_cab/taxi_cab.md3"
+{
+  scale 2 shade 11
+  skin { pal 0  file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/taxi_cab/taxi_cab.jpg" }
+  skin { pal 30 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/taxi_cab/taxi_cab2.jpg" }
+  skin { pal 31 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/taxi_cab/taxi_cab3.jpg" }
+
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5246 tile1 5246 }
+}
+
+
+
+// lamp_post_002 (5248)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/lamp_post/lamppost.md3"
+{
+  scale 2 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/lamp_post/LAMPPOST.jpg" }
+  glow { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/lamp_post/LAMPPOSTG.png" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5248 tile1 5248 }
+}
+
+// parking_meter_002 (5249)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/parking_meter/parkingm.md3"
+{
+  scale 2 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/parking_meter/parkingm.bmp" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5249 tile1 5249 }
+}
+
+
+// bulldozer (5250)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_backhoe/br_backhoe.md3"
+{
+  scale 1.0 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_backhoe/hoe_tire.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_backhoe/hoe_skin.jpg" }
+  skin { pal 0 surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_backhoe/hoe_skin2.jpg" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5250 tile1 5250 }
+}
+
+// apc (5251)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/apc/apc.md3"
+{
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/apc/apc.jpg" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5251 tile1 5251 }
+}
+
+
+// light (5252)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_flourlight/br_flourlight.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_flourlight/br_flourlight.jpg" }
+  glow { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_flourlight/gBR_FLOURLIGHT.png" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5252 tile1 5252 }
+
+}
+
+// cashregister (5253)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_cashregister/br_cashregister.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_cashregister/br_cashregister.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5253 tile1 5253 }
+
+}
+
+// tesla (5254)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_tesla/br_tesla1.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_tesla/br_tesla.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5254 tile1 5254 }
+
+}
+
+// light (5255)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_industriallights/br_indi2.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_industriallights/br_bulb2.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_industriallights/br_indi2.jpg" }
+  glow { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_industriallights/br_bulb2.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5255 tile1 5255 }
+
+}
+
+// pooltable (5256)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_pooltable/br_pooltable.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_pooltable/br_pooltable.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5256 tile1 5256 }
+
+}
+
+// briefcase (5257)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_briefcase/br_briefcase1.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_briefcase/br_Briefcase.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5257 tile1 5257 }
+
+}
+
+// briefcase (5258)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_briefcase/br_drugs.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_briefcase/br_drugs.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5258 tile1 5258 }
+
+}
+
+//  (5259)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic2.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedwheel.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5259 tile1 5259 }
+
+}
+
+// billboard (5260)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_billboards/br_bill2.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_billboards/br_bill2.jpg" }
+  skin { pal 40 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_billboards/br_bill1.jpg" }
+  skin { pal 41 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_billboards/br_bill3.jpg" }
+  skin { pal 42 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_billboards/br_bill4.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5260 tile1 5260 }
+
+}
+
+// freezer (5261)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_freezers/br_freezer3.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_freezers/br_freezer2.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5261 tile1 5261 }
+
+}
+
+// stove (5262)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_kitchen/br_stove.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_kitchen/br_kitchen1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5262 tile1 5262 }
+
+}
+
+
+// microwave (5263)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_kitchen/br_micro1.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_kitchen/br_kitchen1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5263 tile1 5263 }
+
+}
+
+// cues (5264)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_pooltable/br_cues.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_pooltable/br_pooltable.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5264 tile1 5264 }
+
+}
+
+// bulldozer (5265)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_table/br_table2.md3"
+{
+  scale 1.0 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_table/br_table5.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_table/br_table2.jpg" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5265 tile1 5265 }
+}
+
+// limo (5266)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_limo/br_limo.md3"
+{
+  scale 1.5 shade 16
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_limo/br_limoskin.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_limo/br_limotires.jpg" }
+  skin { pal 0 surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_limo/br_limoflag.jpg" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5266 tile1 5266 }
+}
+
+
+// truck (5267)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_boxtruck1/br_boxtruck1_open.md3"
+{
+  scale 2.0 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_boxtruck1/br_boxtruck1.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_boxtruck1/br_boxes.jpg" }
+  skin { pal 0 surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_boxtruck1/br_truckinterior.jpg" }
+  skin { pal 0 surface 3 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_boxtruck1/br_trucktires.jpg" }
+  skin { pal 0 surface 4 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_boxtruck1/br_boxtruckwindows.png" }
+  skin { pal 0 surface 5 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_boxtruck1/br_boxtruck2.jpg" }
+  skin { pal 0 surface 6 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_boxtruck1/br_boxtruck3.jpg" }
+  skin { pal 0 surface 7 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_boxtruck1/br_truckights.jpg" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5267 tile1 5267 }
+}
+
+
+// light (5268)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_bulldozer/br_bulldozer.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_bulldozer/br_bulldozer.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5268 tile1 5268 }
+
+}
+
+// light (5269)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_keg/br_keg1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_keg/br_keg.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5269 tile1 5269 }
+
+}
+
+
+// light (5270)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_ambulance.md3" 
+{
+  scale 2.5 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_flashers1.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_ambutires.jpg" }
+  skin { pal 0 SURFACE 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_ambulance2.jpg" }
+  skin { pal 0 SURFACE 3 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_ambulance1.jpg" }
+  skin { pal 0 SURFACE 4 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_ambuwindows.jpg" }
+  glow { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_flashers1_g.png" }
+   
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5270 tile1 5270 }
+
+}
+
+// light (5271)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_tap/br_tap1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_tap/br_wine1.jpg" }
+   
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5271 tile1 5271 }
+
+}
+
+
+// copy machine (5272)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_copymachine/br_copymachine1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_copymachine/br_copymachine.jpg" }
+   
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5272 tile1 5272 }
+
+}
+
+
+// fire truck (5274)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_firetruck/br_firetruck.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_firetruck/br_flashers.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_firetruck/br_firewindows.jpg" }
+  skin { pal 0 SURFACE 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_firetruck/br_firetruck1.jpg" }
+  skin { pal 0 SURFACE 3 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_firetruck/br_firetruck2.jpg" }
+  skin { pal 0 SURFACE 4 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_firetruck/br_firetruck3.jpg" }
+   
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5274 tile1 5274 }
+
+}
+
+// honda (5275)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_honda/br_honda1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_honda/br_hondatire.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_honda/br_honda1.jpg" }
+  skin { pal 40 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_honda/br_honda2.jpg" }
+  skin { pal 41 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_honda/br_honda3.jpg" }
+   
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5275 tile1 5275 }
+
+}
+
+
+
+// light (5276)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_flourlight/br_flourlight.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_flourlight/BR_FLOURLIGHT.png" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5276 tile1 5276 }
+
+}
+
+// burned vehicle (5277)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic180.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedwheel.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5277 tile1 5277 }
+
+}
+
+// burned vehicle (5278)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic270.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedwheel.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5278 tile1 5278 }
+
+}
+
+// burned vehicle (5279)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic90.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedwheel.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5279 tile1 5279 }
+
+}
+
+// burned vehicle (5280)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic1.md3" {
+  scale 1 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic1.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedwheel1.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5280 tile1 5280 }
+
+}
+
+// sheriff_002 (5281)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/sheriff/sheriff.md3"
+{
+  scale 2 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/sheriff/SHERIFF.jpg" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5281 tile1 5281 }
+}
+
+// burned vehicle (5282)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic1.md3" {
+  scale 1 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic1.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedwheel1.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5282 tile1 5282 }
+
+}
+
+// burned vehicle (5284)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic1.md3" {
+  scale 1 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic1.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedwheel1.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5284 tile1 5284 }
+
+}
+
+// Chainlink fence
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_chainlink/br_fence1.md3"
+{
+  scale 2 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_chainlink/br_fence2.png" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_chainlink/br_Wire1.png" }
+  skin { pal 0 surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_chainlink/br_fence1.jpg" }
+
+  anim { frame0 "AnimFrames00" frame1 "AnimFrames02" fps 1 flags 0 }
+  frame { name "AnimFrames00" tile0 5285 tile1 5285 }
+}
+
+// teapot (5286)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_kitchen/teapot.md3" {
+  scale 1.0 shade 5
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_kitchen/br_kitchen2.jpg" }
+  frame { name "MilkShape 3D" tile 5286 }
+
+}
+
+// toaster (5287)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_kitchen/toaster.md3" {
+  scale 1.0 shade 5
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_kitchen/br_kitchen2.jpg" }
+  frame { name "MilkShape 3D" tile 5287 }
+
+}
+// coffeemaker (5288)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_kitchen/coffeemaker.md3" {
+  scale 1.0 shade 5
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_kitchen/br_kitchen2.jpg" }
+  frame { name "MilkShape 3D" tile 5288 }
+
+}
+// pan (5289)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_kitchen/pan.md3" {
+  scale 1.5 shade 5
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_kitchen/br_kitchen2.jpg" }
+  frame { name "MilkShape 3D" tile 5289 }
+
+}
+
+
+// DNE PART 2 MODELS ================================================================
+
+
+// gaspump (5290)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/gaspump/gas_pump1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/gaspump/gas_pump1.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/gaspump/metal_1.png" }
+  skin { pal 0 SURFACE 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/gaspump/logo.png" }
+   
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5290 tile1 5290 }
+
+}
+
+
+// generator (5291)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_generator/br_generator.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_generator/br_generator.jpg" }
+
+   
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5291 tile1 5291 }
+
+}
+
+// porche (5292)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_porche/br_porche.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_porche/br_porche.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_porche/br_porche.jpg" }
+  skin { pal 0 SURFACE 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_porche/br_windows.jpg" } 
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5292 tile1 5292 }
+
+}
+
+// schoolbus (5293)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_schoolbus/br_schoolbus.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_schoolbus/br_schoolbus1.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_schoolbus/br_schoolbus2.jpg" }
+//  skin { pal 0 SURFACE 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_schoolbus/br_schoolbus.jpg" } 
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5293 tile1 5293 }
+
+}
+
+// semi (5294)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_semi/br_semi1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_semi/br_semitires.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_semi/br_semi1.jpg" }
+  skin { pal 0 SURFACE 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_semi/br_semi1.jpg" } 
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5294 tile1 5294 }
+
+}
+
+// semi (5295)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_trailer/br_trailer1.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_trailer/br_trailertire.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_trailer/br_trailer4.jpg" }
+  skin { pal 0 SURFACE 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_trailer/br_trailer1.jpg" } 
+  skin { pal 0 SURFACE 3 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_trailer/br_trailer2.jpg" } 
+  skin { pal 0 SURFACE 4 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_trailer/br_trailer3.jpg" } 
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5295 tile1 5295 }
+
+}
+
+// ute (5296)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_worktruck/br_worktruck.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_worktruck/br_worktruck2.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_worktruck/br_worktruck1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5296 tile1 5296 }
+
+}
+
+// counter (5297)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_counter/br_counter.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_counter/br_counter3.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_counter/br_counter1.jpg" }
+  skin { pal 0 SURFACE 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_counter/br_counter2.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5297 tile1 5297 }
+
+}
+
+
+// shelving (5298)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_counter/br_shelving1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_counter/br_shelving.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5298 tile1 5298 }
+
+}
+
+
+// shelving (5299)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_counter/br_shelving2.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_counter/br_counter3.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5299 tile1 5299 }
+
+}
+
+
+// shelving (5300)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_airconditioner/br_airconditioner.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_airconditioner/br_airconditioner1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5300 tile1 5300 }
+
+}
+
+// shelving (5301)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_washerdryer/br_dryer1.md3" 
+{
+  scale 1.0 shade 15
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_washerdryer/br_dryer.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5301 tile1 5301 }
+
+}
+
+// shelving (5302)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_washerdryer/br_dryer2.md3" 
+{
+  scale 1.0 shade 15
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_washerdryer/br_dryer.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5302 tile1 5302 }
+
+}
+
+// shelving (5303)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_washerdryer/br_washer1.md3" 
+{
+  scale 1.0 shade 15
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_washerdryer/br_washer.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5303 tile1 5303 }
+
+}
+
+// shelving (5304)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_washerdryer/br_washer2.md3" 
+{
+  scale 1.0 shade 15
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_washerdryer/br_washer.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5304 tile1 5304 }
+
+}
+
+//  (5305)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_gen/br_generator_final.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_gen/br_concrete.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_gen/br_generator3.jpg" }
+  skin { pal 0 SURFACE 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_gen/br_generator2.jpg" }
+  skin { pal 0 SURFACE 3 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_gen/br_generator1.jpg" }
+  skin { pal 0 SURFACE 4 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_gen/br_generator4.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5305 tile1 5305 }
+
+}
+
+//  (5306)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_suv/br_suv1.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_suv/br_tires.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_suv/br_suv1.jpg" }
+  skin { pal 40 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_suv/br_suv2.jpg" }
+  skin { pal 41 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_suv/br_suv3.jpg" }
+  skin { pal 42 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_suv/br_suv4.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5306 tile1 5306 }
+
+}
+
+
+//  (5307)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_shipping/br_shelving.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_shipping/br_shelving.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5307 tile1 5307 }
+
+}
+
+//  (5308)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_shipping/br_shelving1.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_shipping/br_shelving.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5308 tile1 5308 }
+
+}
+
+//  (5309)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_shipping/br_box1.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_shipping/br_boxes.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5309 tile1 5309 }
+
+}
+
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_shipping/br_box2.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_shipping/br_oldboxes.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5310 tile1 5310 }
+
+}
+
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_com/br_lcd3.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_com/br_monitor1.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_com/br_pcscreens.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5311 tile1 5311 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_com/br_mice1.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_com/br_mice.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5312 tile1 5312 }
+
+}
+
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_com/br_keyboard2.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_com/br_monitor1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5313 tile1 5313 }
+
+}
+
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_com/br_silverpc.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_com/br_silverpc.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5314 tile1 5314 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_btruck/br_boxtruck.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_btruck/br_reardoor.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_btruck/br_tailights.jpg" }
+  skin { pal 0 SURFACE 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_btruck/br_boxtruck2top.jpg" }
+  skin { pal 0 SURFACE 3 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_btruck/br_tires.jpg" }
+  skin { pal 0 SURFACE 4 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_btruck/br_boxtruck21.jpg" }
+  skin { pal 40 SURFACE 4 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_btruck/br_boxtruck22.jpg" }
+  skin { pal 40 SURFACE 4 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_btruck/br_boxtruck23.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5315 tile1 5315 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_rubble/br_rubble2.md3" 
+{
+  scale 5.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_rubble/br_can1.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_rubble/br_rubble1.jpg" }
+  skin { pal 0 SURFACE 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_rubble/br_rubble2.jpg" }
+  skin { pal 0 SURFACE 3 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_rubble/br_tires.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5316 tile1 5316 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_clothing/br_clothing.md3" 
+{
+  scale 1.0 shade 15
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_clothing/br_clothing.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5317 tile1 5317 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_industriallights/br_indi2.md3" {
+  scale 1.0 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_industriallights/br_bulb2.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_industriallights/br_indi2.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5318 tile1 5318 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_guardrails/br_guard1.md3" 
+{
+  scale 2.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_guardrails/br_guard1.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_guardrails/br_post.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5320 tile1 5320 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit1.md3" 
+{
+  scale 1.0 shade 15
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit1.jpg" }
+  skin { pal 40 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit2.jpg" }
+  glow { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit1_g.png" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5321 tile1 5321 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit2.md3" 
+{
+  scale 1.0 shade 15
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit2.jpg" }
+  skin { pal 40 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit1.jpg" }
+  glow { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit2_g.png" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5322 tile1 5322 }
+}
+
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit1.md3" 
+{
+  scale 1.0 shade 15
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit1.jpg" }
+  skin { pal 40 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit2.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5323 tile1 5323 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit2.md3" 
+{
+  scale 1.0 shade 15
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit2.jpg" }
+  skin { pal 40 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_exit/br_exit1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5324 tile1 5324 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_light/br_light1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_light/br_bulb2.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_light/br_light1.jpg" }
+  glow { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_light/br_bulb2.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5325 tile1 5325 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_light/br_light1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_light/br_bulb2.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_light/br_light1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5326 tile1 5326 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_dumpster/br_dumpster1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_dumpster/br_dumpsters.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5327 tile1 5327 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_toolbox3.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_toolbox3.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5328 tile1 5328 }
+
+}
+
+// sheriff_002 (5329)
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/sheriff/sheriff.md3"
+{
+  scale 2 shade 11
+  skin { pal 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/sheriff/SHERIFF.jpg" }
+  glow { pal 40 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/sheriff/SHERIFFG1.png" }
+
+  anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+  frame { name "idle01" tile0 5329 tile1 5329 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_screendriver1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_tools1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5330 tile1 5330 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_impact1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_tools1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5331 tile1 5331 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_hammer1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_tools1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5332 tile1 5332 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_wrench1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_tools1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5333 tile1 5333 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_wrench3.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_tools1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5334 tile1 5334 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_ambulance.md3" 
+{
+  scale 2.5 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_flashers1.jpg" }
+  skin { pal 0 SURFACE 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_ambutires.jpg" }
+  skin { pal 0 SURFACE 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_ambulance2.jpg" }
+  skin { pal 0 SURFACE 3 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_ambulance1.jpg" }
+  skin { pal 0 SURFACE 4 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_ambuwindows.jpg" }
+  glow { file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_ambulance/br_flashers2_g.png" }
+   
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5335 tile1 5335 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_toolbox1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_toolbox/br_toolbox1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5336 tile1 5336 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_gascan/br_gascan1.md3" 
+{
+  scale 1.0 shade 11
+  skin { pal 0 SURFACE 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_gascan/br_gascan1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5337 tile1 5337 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic270.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedwheel.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5338 tile1 5338 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lumber/br_lumber1.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lumber/br_lumber1.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lumber/br_strap.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5339 tile1 5339 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lumber/br_lumber2.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lumber/br_lumber2.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lumber/br_strap.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5340 tile1 5340 }
+}
+
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lumber/br_lumber3.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lumber/br_lumber3.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lumber/br_strap.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5341 tile1 5342 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lumber/br_lumber4.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lumber/br_lumber4.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5343 tile1 5343 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic180.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedvehic.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_burnedvehic/br_burnedwheel.jpg" }
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5344 tile1 5344 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_containers/br_container1.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_containers/br_container1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5345 tile1 5345 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_containers/br_container2.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_containers/br_container2.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5346 tile1 5346 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_containers/br_container3.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_containers/br_container3.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5347 tile1 5347 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_containers/br_container4.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_containers/br_container4.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5348 tile1 5348 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_containers/br_container5.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_containers/br_container1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5349 tile1 5349 }
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_portopotty/br_pottyblue.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_portopotty/br_pottyblue.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5350 tile1 5350 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_portopotty/br_pottyred.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_portopotty/br_pottyred.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5351 tile1 5351 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_portopotty/br_pottygreen.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_portopotty/br_pottygreen.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5352 tile1 5352 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_portopotty/br_pottyyellow.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_portopotty/br_pottyyellow.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5353 tile1 5353 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/crate1.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/br_crates1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5354 tile1 5354 }
+
+}
+
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/crate2.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/br_crates1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5355 tile1 5355 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/crate3.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/br_crates1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5356 tile1 5356 }
+
+}
+
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/crate4.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/br_crates1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5357 tile1 5357 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/crate5.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/br_crates1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5358 tile1 5358 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/crate6.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/br_crates1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5359 tile1 5359 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/crate7.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_Crates2/br_crates1.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5360 tile1 5360 }
+
+}
+
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_mixer/br_mixer.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_mixer/br_mixer.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5361 tile1 5361 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lowrider/br_lowrider1.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lowrider/br_lowtires1.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lowrider/br_lowrider1.jpg" }
+  skin { pal 40 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_lowrider/br_lowrider2.jpg" }
+
+
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5362 tile1 5362 }
+
+}
+
+model "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_montecarlo/br_montecarlo.md3" {
+  scale 4 shade 11
+  skin { pal 0 surface 0 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_montecarlo/br_glass1.jpg" }
+  skin { pal 0 surface 1 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_montecarlo/br_monte1.jpg" }
+  skin { pal 0 surface 2 file "DUKEPLUS_RESOURCES/GRAPHICS/MAP_EFFECTS/models/br_montecarlo/br_monte.jpg" }
+
+   anim { frame0 "idle01" frame1 "idle01" fps 0 flags 0 }
+   frame { name "idle01" tile0 5363 tile1 5363 }
+
+}
+
+
+// Override the 2013 Polymer Duke to match the DukePlus 1405 bots
+
+   // Duke standing/moving (1405/1420/1425/1445/1455)
+   model "highres/sprites/characters_polymost/1405_duke.md3" {
+      scale 1.45 shade 0 zadd 3
+      skin { pal 0 surface 0 file "highres/sprites/pickups_polymost/0057_jetpack.png" }
+      skin { pal 0 surface 1 file "highres/sprites/characters_polymost/1405_duke.png" }
+      skin { pal 10 surface 1 file "highres/sprites/characters_polymost/1405_duke_10.png" }
+      skin { pal 11 surface 1 file "highres/sprites/characters_polymost/1405_duke_11.png" }
+      skin { pal 12 surface 1 file "highres/sprites/characters_polymost/1405_duke_12.png" }
+      skin { pal 13 surface 1 file "highres/sprites/characters_polymost/1405_duke_13.png" }
+      skin { pal 14 surface 1 file "highres/sprites/characters_polymost/1405_duke_14.png" }
+      skin { pal 15 surface 1 file "highres/sprites/characters_polymost/1405_duke_15.png" }
+      skin { pal 16 surface 1 file "highres/sprites/characters_polymost/1405_duke_16.png" }
+      skin { pal 21 surface 1 file "highres/sprites/characters_polymost/1405_duke_21.png" }
+      skin { pal 23 surface 1 file "highres/sprites/characters_polymost/1405_duke_23.png" }
+      skin { pal 0 surface 2 file "highres/sprites/pickups/0023_rpg.png" }
+
+      // Idle (1405-1409)
+         anim { frame0 "idle0" frame1 "idle1" fps 6 flags 0 }
+         frame { name "idle0" tile0 1405 tile1 1409 smoothduration 0.4 }
+      // Jetpack (1420-1424)
+         anim { frame0 "jetpack0" frame1 "jetpack1" fps 8 flags 0 }
+         frame { name "jetpack0" tile0 1420 tile1 1424 smoothduration 0.5 }
+      // Run (1425-1444)
+         anim { frame0 "run0" frame1 "run1" fps 36 flags 0 }
+         frame { name "run0" tile0 1425 tile1 1444 smoothduration 0.2 }
+      // Kick (1445-1454)
+         anim { frame0 "kick0" frame1 "kick1" fps 8 flags 1 }
+         frame { name "kick0" tile0 1445 tile1 1454 smoothduration 0.1 }
+      // Jump (1455-1469)
+         anim { frame0 "jump0" frame1 "land" fps 7 flags 1 }
+         frame { name "jump0" tile0 1455 tile1 1464 smoothduration 0.2 }
+         frame { name "land" tile0 1465 tile1 1469 smoothduration 0.2 }
+
+      hud { tile0 1425 tile1 1444 xadd 0.2 yadd 0.4 zadd 1 angadd -640 }
+   }
+
+   // Duke swimming (1780)
+   model "highres/sprites/characters_polymost/1405_duke.md3" {
+      scale 1.45 shade 0 zadd 50
+      skin { pal 0 surface 0 file "highres/sprites/pickups_polymost/0057_jetpack.png" }
+      skin { pal 0 surface 1 file "highres/sprites/characters_polymost/1405_duke.png" }
+      skin { pal 10 surface 1 file "highres/sprites/characters_polymost/1405_duke_10.png" }
+      skin { pal 11 surface 1 file "highres/sprites/characters_polymost/1405_duke_11.png" }
+      skin { pal 12 surface 1 file "highres/sprites/characters_polymost/1405_duke_12.png" }
+      skin { pal 13 surface 1 file "highres/sprites/characters_polymost/1405_duke_13.png" }
+      skin { pal 14 surface 1 file "highres/sprites/characters_polymost/1405_duke_14.png" }
+      skin { pal 15 surface 1 file "highres/sprites/characters_polymost/1405_duke_15.png" }
+      skin { pal 16 surface 1 file "highres/sprites/characters_polymost/1405_duke_16.png" }
+      skin { pal 21 surface 1 file "highres/sprites/characters_polymost/1405_duke_21.png" }
+      skin { pal 23 surface 1 file "highres/sprites/characters_polymost/1405_duke_23.png" }
+      skin { pal 0 surface 2 file "highres/sprites/pickups/0023_rpg.png" }
+      anim { frame0 "swim0" frame1 "swim1" fps 20 flags 0 }
+      frame { name "swim0" tile0 1780 tile1 1799 smoothduration 0.3 }
+   }
+
+   // Duke crouching/dying (1491/1511)
+   model "highres/sprites/characters_polymost/1405_duke.md3" {
+      scale 1.45 shade 0 zadd 41
+      skin { pal 0 surface 0 file "highres/sprites/pickups_polymost/0057_jetpack.png" }
+      skin { pal 0 surface 1 file "highres/sprites/characters_polymost/1405_duke.png" }
+      skin { pal 10 surface 1 file "highres/sprites/characters_polymost/1405_duke_10.png" }
+      skin { pal 11 surface 1 file "highres/sprites/characters_polymost/1405_duke_11.png" }
+      skin { pal 12 surface 1 file "highres/sprites/characters_polymost/1405_duke_12.png" }
+      skin { pal 13 surface 1 file "highres/sprites/characters_polymost/1405_duke_13.png" }
+      skin { pal 14 surface 1 file "highres/sprites/characters_polymost/1405_duke_14.png" }
+      skin { pal 15 surface 1 file "highres/sprites/characters_polymost/1405_duke_15.png" }
+      skin { pal 16 surface 1 file "highres/sprites/characters_polymost/1405_duke_16.png" }
+      skin { pal 21 surface 1 file "highres/sprites/characters_polymost/1405_duke_21.png" }
+      skin { pal 23 surface 1 file "highres/sprites/characters_polymost/1405_duke_23.png" }
+      skin { pal 0 surface 2 file "highres/sprites/pickups/0023_rpg.png" }
+
+      // Crouch (1491-1505)
+         frame { name "crouch1" tile0 1491 tile1 1495 smoothduration 0.2 }
+         frame { name "crouch2" tile0 1496 tile1 1500 smoothduration 0.2 }
+         frame { name "crouch3" tile0 1501 tile1 1505 smoothduration 0.2 }
+      // Death (1511-1518)
+         anim { frame0 "die0" frame1 "die1" fps 25 flags 1 }
+         frame { name "die0" tile0 1511 tile1 1515 smoothduration 0.2 }
+         frame { name "dead" tile 1518 smoothduration 0.3 }
+   }
+
+
+// Frozen Duke (1405)
+model "highres/sprites/characters_polymost/1405_duke.md3" {
+  scale 1.45 shade 0 zadd 3 flags 1
+  skin { surface 0 file "highres/sprites/ice/ice.png" }
+  skin { surface 1 file "highres/sprites/ice/1405_duke_ice.png" }
+  skin { surface 2 file "highres/sprites/ice/ice.png" }
+  frame { pal 1 name "run0" tile 1425  }
+}
+
+
+// Just to be sure : define this again
+
+   // crouch and death anim for Duke Plus bots
+   model "highres/sprites/characters_polymost/1405_duke.md3" {
+      scale 1.55 shade 0 
+      skin { pal 0 surface 0 file "highres/sprites/pickups_polymost/0057_jetpack.png" }
+      skin { pal 0 surface 1 file "highres/sprites/characters_polymost/1405_duke.png" }
+      skin { pal 10 surface 1 file "highres/sprites/characters_polymost/1405_duke_10.png" }
+      skin { pal 11 surface 1 file "highres/sprites/characters_polymost/1405_duke_11.png" }
+      skin { pal 12 surface 1 file "highres/sprites/characters_polymost/1405_duke_12.png" }
+      skin { pal 13 surface 1 file "highres/sprites/characters_polymost/1405_duke_13.png" }
+      skin { pal 14 surface 1 file "highres/sprites/characters_polymost/1405_duke_14.png" }
+      skin { pal 15 surface 1 file "highres/sprites/characters_polymost/1405_duke_15.png" }
+      skin { pal 16 surface 1 file "highres/sprites/characters_polymost/1405_duke_16.png" }
+      skin { pal 21 surface 1 file "highres/sprites/characters_polymost/1405_duke_21.png" }
+      skin { pal 23 surface 1 file "highres/sprites/characters_polymost/1405_duke_23.png" }
+      skin { pal 0 surface 2 file "highres/sprites/pickups/0023_rpg.png" }
+
+      // Crouch
+      frame { name "crouch1" tile0 1471 tile1 1475 smoothduration 0.2 }
+      frame { name "crouch2" tile0 1476 tile1 1480 smoothduration 0.2 }
+      frame { name "crouch3" tile0 1481 tile1 1485 smoothduration 0.2 }
+      // Death
+      anim { frame0 "die0" frame1 "die1" fps 25 flags 1 }
+      frame { name "die0" tile0 1506 tile1 1510 smoothduration 0.2 }
+      frame { name "dead" tile 1519 smoothduration 0.3 }
+   }
