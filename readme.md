@@ -7,9 +7,9 @@ Have fun for many hours!
 
 # Make Setup With InnoSetup
 
-- Place "CustomDuke", "Ultimate Duke Nukem 3D Custom.exe" and "ReadMe.txt" (in "MakeSetup" folder) in a zip with the name "Ultimate Duke Nukem 3D Custom.zip"
+- Place "CustomDuke" and "ReadMe.txt" (in "MakeSetup" folder) in a zip with the name "Ultimate Duke Nukem 3D Custom.zip"
 
-- Place the zip in the “MakeSetup” folder
+- Place "Ultimate Duke Nukem 3D Custom.exe" in "MakeSetup" folder with "Ultimate Duke Nukem 3D Custom.zip"
 
 - Run the "udnc.iss" file with InnoSetup
 
