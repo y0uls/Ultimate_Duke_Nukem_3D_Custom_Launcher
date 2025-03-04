@@ -1,0 +1,40 @@
+EDuke32 r9063-d498eaac9
+Built Jun  2 2020 18:33:32, GCC 10.0.0, 64-bit 
+Application parameters: -game_dir DukePlus 
+Using C:/Users/jbohler/OneDrive - DMC/Documents/Github/Ultimate-Duke-Nukem-3D-Custom/CustomDuke/mods/WGMEGA - DukePlus/ for game data
+Using DukePlus/ for game data
+Checking for updates...
+Connecting to http://www.eduke32.com
+Current version is 20120522... no updates available
+Running on Windows 10 (build 10.0.26100)
+Initialized 1ms system timer
+CPU: Intel(R) Core(TM) Ultra 7 155H
+Initializing SDL 2.0.12
+Searching for game data...
+Using C:/Users/jbohler/OneDrive - DMC/Documents/Github/Ultimate-Duke-Nukem-3D-Custom/CustomDuke/mods/WGMEGA - DukePlus/DukePlus/ for game data
+Using "DUKE3D.GRP" as main game data file.
+Using group file "DukePlus/WGMEGA.PK3".
+Compiling: EDUKE.CON (36 bytes)
+Including: DukePlus/dpcons/DUKEPLUS.CON (438872 bytes)
+Using DEF file: dukeplus.def.
+Using config file "DukePlus/dp.cfg".
+Including: DEFS.CON (37244 bytes)
+Including: USER.CON (46881 bytes)
+USER.CON:848: warning: sound 261 already defined (hydro43.voc)
+USER.CON:877: warning: sound 323 already defined (aisle402.voc)
+Including: DukePlus/dpcons/DEFSPLUS.CON (59504 bytes)
+Including: DukePlus/dpcons/USERPLUS.CON (60996 bytes)
+Including: DukePlus/dpcons/LIGHTS.CON (26079 bytes)
+Including: DukePlus/dukebike/DUKEBIKE.CON (88941 bytes)
+Including: DukePlus/dpcons/HUDPLUS.CON (70297 bytes)
+Including: DukePlus/dpcons/PLAYERPLUS.CON (139315 bytes)
+Including: DukePlus/dpcons/MONSTERPLUS.CON (246973 bytes)
+Including: DukePlus/dpcons/CIVILIANS.CON (17011 bytes)
+Including: DukePlus/strooper/STROOPER.CON (197400 bytes)
+DukePlus/dpcons/DUKEPLUS.CON:8061: warning: duplicate action `BUBBLE' ignored.
+DukePlus/dpcons/DUKEPLUS.CON: In actor `WATERBUBBLE':
+DukePlus/dpcons/DUKEPLUS.CON:8066: warning: expected action, found define.
+Found 4 warning(s), 0 error(s).
+Compiled 1278704 bytes in 847ms
+Wrote DukePlus/dp.cfg
+Wrote DukePlus/dp_settings.cfg
