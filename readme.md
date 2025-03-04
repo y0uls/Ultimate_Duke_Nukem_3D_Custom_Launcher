@@ -1,21 +1,25 @@
 # Using Ultimate Duke Nukem 3D Custom
 
-To use it, simply **run** the "**Ultimate Duke Nukem 3D Custom.bat**" batch and choose the launch options!
+To use it, simply **run** the "**Ultimate Duke Nukem 3D Custom.exe**" and choose the launch options!
 
 Have fun for many hours!
-
-_PS : If you want to start the game in fullscreen you will have to go through a CMD window and execute the script : "Ultimate Duke Nukem 3D Custom.bat" --fullscreen OR Or change "wt --fullscreen -d . cmd /k "CustomDuke\udnc.bat" %1" in "Ultimate Duke Nukem 3D Custom.bat" to "wt --fullscreen -d . cmd /k "CustomDuke\udnc.bat" --fullscreen"_
 
 
 # Make Setup With InnoSetup
 
-- Place "CustomDuke", "Ultimate Duke Nukem 3D Custom.bat" and "ReadMe.txt" (in "MakeSetup" folder) in a zip with the name "Ultimate Duke Nukem 3D Custom.zip"
+- Place "CustomDuke", "Ultimate Duke Nukem 3D Custom.exe" and "ReadMe.txt" (in "MakeSetup" folder) in a zip with the name "Ultimate Duke Nukem 3D Custom.zip"
 
 - Place the zip in the “MakeSetup” folder
 
 - Run the "udnc.iss" file with InnoSetup
 
 - Compile the setup
+
+
+# Ultimate Duke Nukem 3D Custom.exe Project
+
+**The Visual Studio 2022 folder contains all sources to modify or recompile "Ultimate Duke Nukem 3D Custom.exe"**
+
 
 ## Licences
 
