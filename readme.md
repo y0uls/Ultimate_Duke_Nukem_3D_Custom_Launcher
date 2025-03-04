@@ -4,12 +4,12 @@ To use it, simply **run** the "**Ultimate Duke Nukem 3D Custom.exe**" and choose
 
 Have fun for many hours!
 
-It is possible to add a custom map for example by running "**Ultimate Duke Nukem 3D Custom.exe**", choose "**Choose a custom map**" from the drop-down list then click on "Browse". 
+_It is possible to add a custom map for example by running "**Ultimate Duke Nukem 3D Custom.exe**", choose "**Choose a custom map**" from the drop-down list then click on "**Browse**"._
 
-Once in the "maps" folder, create a folder with the name of the map and place the .map file there. 
+_Once in the "maps" folder, create a folder with the name of the map and place the .map file there._
 
 **!! Be careful in the "maps" section, the folders must contain only 1 .map file !!**\
-If there are several maps files, do the same manipulation but in the "mods" section
+**If there are several maps files, do the same manipulation but in the "mods" section**
 
 
 # Make Setup With InnoSetup
