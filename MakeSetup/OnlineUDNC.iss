@@ -49,7 +49,7 @@ Name: "readme"; Description: "Read Me"; GroupDescription: "Options"; Flags: unch
 
 [Files]
 Source: "Ultimate Duke Nukem 3D Custom.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{tmp}\Ultimate Duke Nukem 3D Custom.zip"; DestDir: "{app}"; Flags: external ignoreversion deleteafterinstall; AfterInstall: DecompressAndDeleteZip
+Source: "{tmp}\UltimateDukeNukem3DCustom.zip"; DestDir: "{app}"; Flags: external ignoreversion deleteafterinstall; AfterInstall: DecompressAndDeleteZip
 Source: {code:GetMyFile}; DestDir: "{app}"; Flags: external
 
 [Icons]
@@ -75,7 +75,7 @@ var
 function OnDownloadProgress(const Url, FileName: String; const Progress, ProgressMax: Int64): Boolean;
 begin
   if Progress = ProgressMax then
-    Log(Format('Successfully downloaded file to {app}: %s', [FileName]));
+    Log(Format('Successfully downloaded file to {tmp}: %s', [FileName]));
   Result := True;
 end;
   
@@ -84,7 +84,7 @@ var
   ShellApp: Variant;
   ZipFilePath, ExtractPath: string;
 begin
-  ZipFilePath := ExpandConstant('{tmp}\Ultimate Duke Nukem 3D Custom.zip');
+  ZipFilePath := ExpandConstant('{tmp}\UltimateDukeNukem3DCustom.zip');
   ExtractPath := ExpandConstant('{app}');
   
   try
@@ -243,7 +243,7 @@ begin
   if CurPageID = wpReady then
   begin
     DownloadPage.Clear;
-    DownloadPage.Add('https://hscrew.fr/Ultimate%20Duke%20Nukem%203D%20Custom.zip', 'Ultimate Duke Nukem 3D Custom.zip', '');
+    DownloadPage.Add('https://y0uls.com/UltimateDukeNukem3DCustom.zip', 'UltimateDukeNukem3DCustom.zip', '');
     DownloadPage.Show;
     try
       try
