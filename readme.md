@@ -14,11 +14,11 @@ _Once in the "maps" folder, create a folder with the name of the map and place t
 
 # Make Setup With InnoSetup
 
-- Place "CustomDuke" in a zip with the name "Ultimate Duke Nukem 3D Custom.zip"
+- Place "CustomDuke" in a zip with the name "UltimateDukeNukem3DCustom.zip"
 
-- Place "Ultimate Duke Nukem 3D Custom.exe" and "Ultimate Duke Nukem 3D Custom.zip" in "MakeSetup" folder
+- Place "Ultimate Duke Nukem 3D Custom.exe" and "UltimateDukeNukem3DCustom.zip" in "MakeSetup" folder
 
-- Run the "udnc.iss" file with InnoSetup OR "OnlineUDNC.iss" if you have an FTP server where to drop "Ultimate Duke Nukem 3D Custom.zip" (Consider changing the path in "OnlineUDNC.iss" in "#define UrlZipFile" if this is the case)
+- Run the "udnc.iss" file with InnoSetup OR "OnlineUDNC.iss" if you have an FTP server where to drop "UltimateDukeNukem3DCustom.zip" (Consider changing the path in "OnlineUDNC.iss" in "#define UrlZipFile" if this is the case)
 
 - Compile the setup
 
