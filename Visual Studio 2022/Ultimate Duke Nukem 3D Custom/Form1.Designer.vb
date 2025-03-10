@@ -35,77 +35,87 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.ButtonOpenFolder = New System.Windows.Forms.Button()
+        Me.ButtonConfig = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(32, 328)
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(32, 488)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(122, 23)
+        Me.Button1.Size = New System.Drawing.Size(419, 40)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Start Game"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'ComboBox1
         '
+        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(32, 36)
+        Me.ComboBox1.Location = New System.Drawing.Point(32, 67)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(150, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(122, 28)
         Me.ComboBox1.TabIndex = 1
         '
         'ListBox1
         '
+        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(32, 111)
+        Me.ListBox1.ItemHeight = 20
+        Me.ListBox1.Location = New System.Drawing.Point(32, 189)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(312, 173)
+        Me.ListBox1.Size = New System.Drawing.Size(555, 244)
         Me.ListBox1.TabIndex = 4
         '
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.BackColor = System.Drawing.Color.Transparent
+        Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox1.ForeColor = System.Drawing.Color.Yellow
-        Me.CheckBox1.Location = New System.Drawing.Point(32, 290)
+        Me.CheckBox1.Location = New System.Drawing.Point(39, 458)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(87, 17)
+        Me.CheckBox1.Size = New System.Drawing.Size(118, 24)
         Me.CheckBox1.TabIndex = 5
         Me.CheckBox1.Text = "Server Mode"
         Me.CheckBox1.UseVisualStyleBackColor = False
         '
         'ButtonExit
         '
-        Me.ButtonExit.Location = New System.Drawing.Point(269, 328)
+        Me.ButtonExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonExit.Location = New System.Drawing.Point(457, 488)
         Me.ButtonExit.Name = "ButtonExit"
-        Me.ButtonExit.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonExit.Size = New System.Drawing.Size(130, 40)
         Me.ButtonExit.TabIndex = 6
         Me.ButtonExit.Text = "Exit"
         Me.ButtonExit.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(219, 85)
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(160, 137)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(125, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(122, 26)
         Me.TextBox1.TabIndex = 7
         '
         'ComboBoxFilter
         '
+        Me.ComboBoxFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBoxFilter.FormattingEnabled = True
-        Me.ComboBoxFilter.Location = New System.Drawing.Point(32, 84)
+        Me.ComboBoxFilter.Location = New System.Drawing.Point(32, 135)
         Me.ComboBoxFilter.Name = "ComboBoxFilter"
-        Me.ComboBoxFilter.Size = New System.Drawing.Size(122, 21)
+        Me.ComboBoxFilter.Size = New System.Drawing.Size(122, 28)
         Me.ComboBoxFilter.TabIndex = 8
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Yellow
-        Me.Label1.Location = New System.Drawing.Point(29, 20)
+        Me.Label1.Location = New System.Drawing.Point(28, 44)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(72, 13)
+        Me.Label1.Size = New System.Drawing.Size(105, 20)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Type of game"
         '
@@ -113,10 +123,11 @@ Partial Class Form1
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Yellow
-        Me.Label2.Location = New System.Drawing.Point(29, 68)
+        Me.Label2.Location = New System.Drawing.Point(28, 112)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(29, 13)
+        Me.Label2.Size = New System.Drawing.Size(44, 20)
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Filter"
         '
@@ -124,10 +135,11 @@ Partial Class Form1
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Yellow
-        Me.Label3.Location = New System.Drawing.Point(216, 69)
+        Me.Label3.Location = New System.Drawing.Point(156, 114)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(72, 13)
+        Me.Label3.Size = New System.Drawing.Size(108, 20)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Autocomplete"
         '
@@ -135,22 +147,34 @@ Partial Class Form1
         '
         Me.CheckBox2.AutoSize = True
         Me.CheckBox2.BackColor = System.Drawing.Color.Transparent
+        Me.CheckBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox2.ForeColor = System.Drawing.Color.Yellow
-        Me.CheckBox2.Location = New System.Drawing.Point(126, 291)
+        Me.CheckBox2.Location = New System.Drawing.Point(163, 458)
         Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(74, 17)
+        Me.CheckBox2.Size = New System.Drawing.Size(101, 24)
         Me.CheckBox2.TabIndex = 12
         Me.CheckBox2.Text = "Fullscreen"
         Me.CheckBox2.UseVisualStyleBackColor = False
         '
         'ButtonOpenFolder
         '
-        Me.ButtonOpenFolder.Location = New System.Drawing.Point(219, 36)
+        Me.ButtonOpenFolder.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonOpenFolder.Location = New System.Drawing.Point(357, 135)
         Me.ButtonOpenFolder.Name = "ButtonOpenFolder"
-        Me.ButtonOpenFolder.Size = New System.Drawing.Size(101, 23)
+        Me.ButtonOpenFolder.Size = New System.Drawing.Size(119, 29)
         Me.ButtonOpenFolder.TabIndex = 13
         Me.ButtonOpenFolder.Text = "Browse Folder"
         Me.ButtonOpenFolder.UseVisualStyleBackColor = True
+        '
+        'ButtonConfig
+        '
+        Me.ButtonConfig.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonConfig.Location = New System.Drawing.Point(482, 135)
+        Me.ButtonConfig.Name = "ButtonConfig"
+        Me.ButtonConfig.Size = New System.Drawing.Size(105, 28)
+        Me.ButtonConfig.TabIndex = 14
+        Me.ButtonConfig.Text = "Config File"
+        Me.ButtonConfig.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -158,7 +182,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Ultimate_Duke_Nukem_3D_Custom.My.Resources.Resources.yrbaxqxyrfj0rapcsscr
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(380, 380)
+        Me.ClientSize = New System.Drawing.Size(624, 548)
+        Me.Controls.Add(Me.ButtonConfig)
         Me.Controls.Add(Me.ButtonOpenFolder)
         Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.Label3)
@@ -191,4 +216,5 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents CheckBox2 As CheckBox
     Friend WithEvents ButtonOpenFolder As Button
+    Friend WithEvents ButtonConfig As Button
 End Class
