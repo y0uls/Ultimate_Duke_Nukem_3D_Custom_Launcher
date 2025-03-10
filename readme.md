@@ -27,6 +27,12 @@ _Once in the "maps" folder, create a folder with the name of the map and place t
 
 **The Visual Studio 2022 folder contains all sources to modify or recompile "Ultimate Duke Nukem 3D Custom.exe"**
 
+# Update your maps/mods pack manually
+
+The map zip may be updated from time to time. To download it manually, enter this address: "https://y0uls.com/UltimateDukeNukem3DCustom.zip" then replace the contents of the "CustomDuke" directory with the new one.\
+
+**The "CustomDuke" directory is located in the installation folder you initially chose.**
+
 
 ## Licences
 
