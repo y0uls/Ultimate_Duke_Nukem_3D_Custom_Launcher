@@ -4,7 +4,7 @@ To use it, simply **run** the "**Ultimate Duke Nukem 3D Custom.exe**" and choose
 
 Have fun for many hours!
 
-_It is possible to add a custom map for example by running "**Ultimate Duke Nukem 3D Custom.exe**", choose "**Choose a custom map**" from the drop-down list then click on "**Browse**"._
+_It is possible to add a custom map for example by running "**Ultimate Duke Nukem 3D Custom.exe**", choose "**Maps**" from the drop-down list then click on "**Browse Folder**"._
 
 _Once in the "maps" folder, create a folder with the name of the map and place the .map file there._
 
@@ -14,11 +14,11 @@ _Once in the "maps" folder, create a folder with the name of the map and place t
 
 # Make Setup With InnoSetup
 
-- Place "CustomDuke" and "ReadMe.txt" (in "MakeSetup" folder) in a zip with the name "Ultimate Duke Nukem 3D Custom.zip"
+- Place "CustomDuke" in a zip with the name "Ultimate Duke Nukem 3D Custom.zip"
 
-- Place "Ultimate Duke Nukem 3D Custom.exe" in "MakeSetup" folder with "Ultimate Duke Nukem 3D Custom.zip"
+- Place "Ultimate Duke Nukem 3D Custom.exe" and "Ultimate Duke Nukem 3D Custom.zip" in "MakeSetup" folder
 
-- Run the "udnc.iss" file with InnoSetup
+- Run the "udnc.iss" file with InnoSetup OR "OnlineUDNC.iss" if you have an FTP server where to drop "Ultimate Duke Nukem 3D Custom.zip" (Consider changing the path in "OnlineUDNC.iss" if this is the case)
 
 - Compile the setup
 
