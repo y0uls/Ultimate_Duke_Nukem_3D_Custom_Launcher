@@ -2,7 +2,8 @@
 
 # Using Ultimate Duke Nukem 3D Custom
 
-To use it, simply **run** the "**Ultimate Duke Nukem 3D Custom.exe**" and choose the launch options!
+To use it, simply download the realase or "https://y0uls.com/OnlineUltimateDukeNukemInstaller.exe" and install.\
+**Run** the "**Ultimate Duke Nukem 3D Custom.exe**" after install and choose the launch options!
 
 Have fun for many hours!
 
@@ -30,6 +31,28 @@ _Once in the "maps" folder, create a folder with the name of the map and place t
 # Ultimate Duke Nukem 3D Custom.exe Project
 
 **The Visual Studio 2022 folder contains all sources to modify or recompile "Ultimate Duke Nukem 3D Custom.exe"**
+
+# Configuration file
+
+```json
+{
+    "Config":{
+        "PathInstall":"C:\\folder\\game\\Ultimate Duke Nukem 3D Custom"
+    },
+    "Game":{
+        "Difficulty":2,
+        "ServerMode":0,
+        "Fullscreen":0,
+        "ExitAfterStart":0
+    }
+}
+```
+- PathInstall : Game installation folder
+- Difficulty : The default difficulty mode when launching a map (from 1 to 4). **4 = mob respawn**
+- ServerMode : 0 unchecks the default server mode checkbox and 1 checks the default server mode checkbox
+- Fullscreen : 0 = 1280x720 and 1 = fullscreen
+- ExitAfterStart : 0 leaves the application running and 1 closes it when the game is launched
+
 
 # Update your maps/mods pack manually
 
