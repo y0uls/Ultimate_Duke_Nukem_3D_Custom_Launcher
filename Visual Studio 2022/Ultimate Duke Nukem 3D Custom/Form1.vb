@@ -146,13 +146,13 @@ Public Class Form1
             Dim count As Integer = mapFiles.Length
 
             If count = 0 Then
-                Process.Start(New ProcessStartInfo(eduke32Path, $"-j""{fullPath}"" {mode} {specificFile} -usecwd -s{difficulty}") With {.WorkingDirectory = "C:\Program Files (x86)\Ultimate Duke Nukem 3D Custom\CustomDuke"})
+                Process.Start(New ProcessStartInfo(eduke32Path, $"-j""{fullPath}"" {mode} {specificFile} -usecwd -s{difficulty}") With {.WorkingDirectory = installDir + "\CustomDuke"})
             ElseIf count = 1 Then
-                Process.Start(New ProcessStartInfo(eduke32Path, $"-j""{fullPath}"" ""{IO.Path.GetFileName(mapFiles(0))}"" {mode} {specificFile} -usecwd -s{difficulty}") With {.WorkingDirectory = "C:\Program Files (x86)\Ultimate Duke Nukem 3D Custom\CustomDuke"})
+                Process.Start(New ProcessStartInfo(eduke32Path, $"-j""{fullPath}"" ""{IO.Path.GetFileName(mapFiles(0))}"" {mode} {specificFile} -usecwd -s{difficulty}") With {.WorkingDirectory = installDir + "\CustomDuke"})
             Else
                 Dim mapFile As String = ChooseMap(mapFiles)
                 If Not String.IsNullOrEmpty(mapFile) Then
-                    Process.Start(New ProcessStartInfo(eduke32Path, $"-j""{fullPath}"" ""{IO.Path.GetFileName(mapFile)}"" {mode} {specificFile} -usecwd -s{difficulty}") With {.WorkingDirectory = "C:\Program Files (x86)\Ultimate Duke Nukem 3D Custom\CustomDuke"})
+                    Process.Start(New ProcessStartInfo(eduke32Path, $"-j""{fullPath}"" ""{IO.Path.GetFileName(mapFile)}"" {mode} {specificFile} -usecwd -s{difficulty}") With {.WorkingDirectory = installDir + "\CustomDuke"})
                 End If
             End If
         Else
@@ -192,7 +192,7 @@ Public Class Form1
             Dim count As Integer = modFiles.Length
 
             If count = 1 Then
-                Process.Start(New ProcessStartInfo(eduke32Path, $"-j""{fullPath}"" ""{IO.Path.GetFileName(modFiles(0))}"" {mode} {specificFile} -usecwd") With {.WorkingDirectory = "C:\Program Files (x86)\Ultimate Duke Nukem 3D Custom\CustomDuke"})
+                Process.Start(New ProcessStartInfo(eduke32Path, $"-j""{fullPath}"" ""{IO.Path.GetFileName(modFiles(0))}"" {mode} {specificFile} -usecwd") With {.WorkingDirectory = installDir + "\CustomDuke"})
 
 
 
@@ -201,7 +201,7 @@ Public Class Form1
             ElseIf IO.File.Exists(IO.Path.Combine(fullPath, "eduke32.exe")) Then
                 Process.Start(New ProcessStartInfo(IO.Path.Combine(fullPath, "eduke32.exe"), $"-j""{fullPath}"" {mode} {specificFile} -usecwd") With {.WorkingDirectory = fullPath})
             Else
-                Process.Start(New ProcessStartInfo(eduke32Path, $"-j""{fullPath}"" {mode} {specificFile} -usecwd") With {.WorkingDirectory = "C:\Program Files (x86)\Ultimate Duke Nukem 3D Custom\CustomDuke"})
+                Process.Start(New ProcessStartInfo(eduke32Path, $"-j""{fullPath}"" {mode} {specificFile} -usecwd") With {.WorkingDirectory = installDir + "\CustomDuke"})
             End If
         Else
             MessageBox.Show("Selected mod folder does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -274,6 +274,7 @@ Module Module1
     Function LoadConfiguration() As Configuration
         Dim configFilePath As String = "config.json"
         Dim config As Configuration
+        Dim appDirectory As String = Application.StartupPath
 
         If File.Exists(configFilePath) Then
             Dim json As String = File.ReadAllText(configFilePath)
@@ -284,7 +285,7 @@ Module Module1
                 config.Config = New Config()
             End If
             If String.IsNullOrEmpty(config.Config.PathInstall) Then
-                config.Config.PathInstall = "C:\Program Files (x86)\Ultimate Duke Nukem 3D Custom"
+                config.Config.PathInstall = $"{appDirectory}"
             End If
 
             If config.Game Is Nothing Then
@@ -305,7 +306,7 @@ Module Module1
         Else
             config = New Configuration With {
                 .Config = New Config With {
-                    .PathInstall = "C:\Program Files (x86)\Ultimate Duke Nukem 3D Custom"
+                    .PathInstall = $"{appDirectory}"
                 },
                 .Game = New Game With {
                     .Difficulty = 2,
