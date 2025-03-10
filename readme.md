@@ -1,3 +1,5 @@
+![screenshot](CustomDuke/cover/background.jpg "Ultimate Duke Nukem 3D Custom")
+
 # Using Ultimate Duke Nukem 3D Custom
 
 To use it, simply **run** the "**Ultimate Duke Nukem 3D Custom.exe**" and choose the launch options!
@@ -10,6 +12,8 @@ _Once in the "maps" folder, create a folder with the name of the map and place t
 
 **!! Be careful in the "maps" section, the folders must contain only 1 .map file !!**\
 **If there are several maps files, do the same manipulation but in the "mods" section**
+
+![screenshot](MakeSetup/UDNC.png "Ultimate Duke Nukem 3D Custom")
 
 
 # Make Setup With InnoSetup
