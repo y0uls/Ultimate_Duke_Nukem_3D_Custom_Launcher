@@ -25,7 +25,7 @@ _Once in the "maps" folder, create a folder with the name of the map and place t
 
 - Place "CustomDuke" in a zip with the name "UltimateDukeNukem3DCustom.zip"
 
-- Place "Ultimate Duke Nukem 3D Custom.exe" and "UltimateDukeNukem3DCustom.zip" in "MakeSetup" folder
+- Place "Ultimate Duke Nukem 3D Custom.exe", "HtmlAgilityPack.dll" and "UltimateDukeNukem3DCustom.zip" in "MakeSetup" folder
 
 - Run the "udnc.iss" file with InnoSetup OR "OnlineUDNC.iss" if you have an FTP server where to drop "UltimateDukeNukem3DCustom.zip" (Consider changing the path in "OnlineUDNC.iss" in "#define UrlZipFile" if this is the case)
 
@@ -60,7 +60,7 @@ _Once in the "maps" folder, create a folder with the name of the map and place t
 
 # Update your maps/mods pack manually
 
-The map zip may be updated from time to time. To download it manually, enter this address: "https://y0uls.com/UltimateDukeNukem3DCustom.zip" then replace the contents of the "CustomDuke" directory with the new one.
+The map zip may be updated from time to time. To download it manually, enter this address: "https://y0uls.com/downloads" then replace the contents of the "CustomDuke" directory with the new one.
 
 **The "CustomDuke" directory is located in the installation folder you initially chose.**
 
