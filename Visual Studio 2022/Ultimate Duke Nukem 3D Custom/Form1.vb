@@ -1,5 +1,10 @@
 ﻿Imports System.IO
+Imports System.Net
+Imports System.IO.Compression
+Imports HtmlAgilityPack
 Imports System.Web.Script.Serialization
+Imports System.Security.Policy
+Imports System.Web
 Public Class Form1
     Private difficulty As String
     Private serverMode As String
@@ -10,6 +15,11 @@ Public Class Form1
     Private modsDir As String
     Private eduke32Path As String
     Private fullscreenFile As String
+    Private grpFile As String
+    Private urlMods As String = "https://y0uls.com/downloads/mods"
+
+
+    Private WithEvents client As New WebClient()
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim config As Configuration = LoadConfiguration()
@@ -23,6 +33,11 @@ Public Class Form1
         modsDir = installDir + "\CustomDuke\mods"
         eduke32Path = installDir + "\CustomDuke\eduke32.exe"
         fullscreenFile = installDir + "\CustomDuke\fullscreen.cfg"
+        grpFile = installDir + "\CustomDuke\DUKE3D.GRP"
+
+        If Not Directory.Exists(modsDir) Then
+            Directory.CreateDirectory(modsDir)
+        End If
 
         If serverMode = 1 Then
             CheckBox1.Checked = True
@@ -43,6 +58,39 @@ Public Class Form1
         Next
         ComboBoxFilter.Items.Add("All")
         ComboBoxFilter.SelectedIndex = ComboBoxFilter.Items.Count - 1
+
+        Dim files As String() = Directory.GetFiles(modsDir)
+        For Each file As String In files
+            Dim fileName As String = Path.GetFileNameWithoutExtension(file)
+            ListBoxTelecharges.Items.Add(fileName)
+            ListBoxNonTelecharges.Items.Remove(fileName)
+        Next
+
+        Dim directories As String() = Directory.GetDirectories(modsDir)
+        For Each dir As String In directories
+            Dim dirName As String = Path.GetFileName(dir)
+            ListBoxTelecharges.Items.Add(dirName)
+            ListBoxNonTelecharges.Items.Remove(dirName)
+        Next
+
+        Dim web As New HtmlWeb()
+        Dim doc As HtmlDocument = web.Load(urlMods)
+        Dim nodes As HtmlNodeCollection = doc.DocumentNode.SelectNodes("//a[@href]")
+
+        If nodes IsNot Nothing Then
+            For Each node As HtmlNode In nodes
+                Dim href As String = node.GetAttributeValue("href", String.Empty)
+                href = href.Replace("%20", " ")
+                If href.EndsWith(".zip") Then
+                    Dim fileName As String = Path.GetFileNameWithoutExtension(href)
+                    If Not ListBoxTelecharges.Items.Contains(fileName) Then
+                        ListBoxNonTelecharges.Items.Add(fileName)
+                    End If
+                End If
+            Next
+        Else
+            MessageBox.Show("No files found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
@@ -197,9 +245,9 @@ Public Class Form1
 
 
             ElseIf IO.File.Exists(IO.Path.Combine(fullPath, "launcher.bat")) Then
-                Process.Start(New ProcessStartInfo(IO.Path.Combine(fullPath, "launcher.bat"), mode) With {.WorkingDirectory = fullPath})
+                Process.Start(New ProcessStartInfo(IO.Path.Combine(fullPath, "launcher.bat"), $"--grp ""{grpFile}"" {mode} -usecwd") With {.WorkingDirectory = fullPath})
             ElseIf IO.File.Exists(IO.Path.Combine(fullPath, "eduke32.exe")) Then
-                Process.Start(New ProcessStartInfo(IO.Path.Combine(fullPath, "eduke32.exe"), $"-j""{fullPath}"" {mode} {specificFile} -usecwd") With {.WorkingDirectory = fullPath})
+                Process.Start(New ProcessStartInfo(IO.Path.Combine(fullPath, "eduke32.exe"), $"-j""{fullPath}"" --grp ""{grpFile}"" {mode} -usecwd") With {.WorkingDirectory = fullPath})
             Else
                 Process.Start(New ProcessStartInfo(eduke32Path, $"-j""{fullPath}"" {mode} {specificFile} -usecwd") With {.WorkingDirectory = installDir + "\CustomDuke"})
             End If
@@ -252,12 +300,96 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+    Private Sub ButtonTelecharger_Click(sender As Object, e As EventArgs) Handles ButtonTelecharger.Click
+        If ListBoxNonTelecharges.SelectedItem IsNot Nothing Then
+            Dim selectedFile As String = ListBoxNonTelecharges.SelectedItem.ToString() & ".zip"
+            Dim url As String = "https://y0uls.com/downloads/mods/" & selectedFile
+            Dim filePath As String = Path.Combine(modsDir, selectedFile)
 
+            If Not Directory.Exists(modsDir) Then
+                Directory.CreateDirectory(modsDir)
+            End If
+
+            ProgressBar1.Value = 0
+            client.DownloadFileAsync(New Uri(url), filePath)
+        Else
+            MessageBox.Show("Please select an item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    Private Sub client_DownloadProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs) Handles client.DownloadProgressChanged
+        ProgressBar1.Value = e.ProgressPercentage
+        Label4.Text = e.ProgressPercentage & "%"
+    End Sub
 
+    Private Sub client_DownloadFileCompleted(sender As Object, e As System.ComponentModel.AsyncCompletedEventArgs) Handles client.DownloadFileCompleted
+        Dim selectedFile As String = ListBoxNonTelecharges.SelectedItem.ToString() & ".zip"
+        Dim filePath As String = Path.Combine(modsDir, selectedFile)
+
+        Try
+            Dim extractPath As String = Path.Combine(modsDir, Path.GetFileNameWithoutExtension(selectedFile))
+            ZipFile.ExtractToDirectory(filePath, extractPath)
+            File.Delete(filePath)
+            ListBoxNonTelecharges.Items.Remove(Path.GetFileNameWithoutExtension(selectedFile))
+            ListBox1.Items.Remove(Path.GetFileNameWithoutExtension(selectedFile))
+            ListBoxTelecharges.Items.Remove(Path.GetFileNameWithoutExtension(selectedFile))
+            ListBoxNonTelecharges.Items.Remove(Path.GetFileNameWithoutExtension(selectedFile))
+            RescanFiles()
+            If Not ListBoxTelecharges.Items.Contains(Path.GetFileNameWithoutExtension(selectedFile)) Then
+                ListBoxTelecharges.Items.Add(Path.GetFileNameWithoutExtension(selectedFile))
+            End If
+            MessageBox.Show(Path.GetFileNameWithoutExtension(selectedFile) & " downloaded", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ProgressBar1.Value = 0
+            Label4.Text = ""
+            RescanFiles()
+        Catch ex As Exception
+            MessageBox.Show("Error while downloading : " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub ButtonDesinstaller_Click(sender As Object, e As EventArgs) Handles ButtonDesinstaller.Click
+        If ListBoxTelecharges.SelectedItem IsNot Nothing Then
+            Dim selectedFile As String = ListBoxTelecharges.SelectedItem.ToString()
+            Dim extractPath As String = Path.Combine(modsDir, selectedFile)
+
+            If Directory.Exists(extractPath) Then
+                Directory.Delete(extractPath, True)
+                MessageBox.Show(Path.GetFileNameWithoutExtension(selectedFile) & " uninstalled.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Else
+                MessageBox.Show("The option is not valid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+
+            ListBox1.Items.Remove(selectedFile)
+            ListBoxTelecharges.Items.Remove(selectedFile)
+            ListBoxNonTelecharges.Items.Add(selectedFile)
+            RescanFiles()
+        Else
+            MessageBox.Show("Please select an item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
+    Private Sub RescanFiles()
+        ListBoxNonTelecharges.Items.Clear()
+        ListBox1.Items.Clear()
+        ComboBox1.SelectedIndex = -1
+        Dim web As New HtmlWeb()
+        Dim doc As HtmlDocument = web.Load(urlMods)
+        Dim nodes As HtmlNodeCollection = doc.DocumentNode.SelectNodes("//a[@href]")
+
+        If nodes IsNot Nothing Then
+            For Each node As HtmlNode In nodes
+                Dim href As String = node.GetAttributeValue("href", String.Empty)
+                href = href.Replace("%20", " ")
+                If href.EndsWith(".zip") Then
+                    Dim fileName As String = Path.GetFileNameWithoutExtension(href)
+                    If Not ListBoxTelecharges.Items.Contains(fileName) Then
+                        ListBoxNonTelecharges.Items.Add(fileName)
+                    End If
+                End If
+            Next
+        Else
+            MessageBox.Show("No files found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 End Class
 
