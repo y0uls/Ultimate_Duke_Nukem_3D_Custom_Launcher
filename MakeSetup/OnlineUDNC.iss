@@ -1,5 +1,5 @@
 #define MyAppName "Ultimate Duke Nukem 3D Custom"
-#define MyAppVersion "5.0"
+#define MyAppVersion "6.0"
 #define MyAppPublisher "Y0uls"
 #define MyAppExeName "Ultimate Duke Nukem 3D Custom.exe"
 #define UrlZipFile "https://y0uls.com/UltimateDukeNukem3DCustom.zip"
@@ -51,8 +51,6 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "readme"; Description: "Read Me"; GroupDescription: "Options"; Flags: unchecked
 
 [Files]
-Source: "Ultimate Duke Nukem 3D Custom.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "HtmlAgilityPack.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{tmp}\UltimateDukeNukem3DCustom.zip"; DestDir: "{app}"; Flags: external ignoreversion deleteafterinstall; AfterInstall: DecompressAndDeleteZip
 Source: {code:GetMyFile}; DestDir: "{app}"; Flags: external
 
