@@ -1,5 +1,5 @@
 #define MyAppName "Ultimate Duke Nukem 3D Custom"
-#define MyAppVersion "4.0"
+#define MyAppVersion "5.0"
 #define MyAppPublisher "Y0uls"
 #define MyAppExeName "Ultimate Duke Nukem 3D Custom.exe"
 #define UrlZipFile "https://y0uls.com/UltimateDukeNukem3DCustom.zip"
@@ -52,6 +52,7 @@ Name: "readme"; Description: "Read Me"; GroupDescription: "Options"; Flags: unch
 
 [Files]
 Source: "Ultimate Duke Nukem 3D Custom.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "HtmlAgilityPack.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{tmp}\UltimateDukeNukem3DCustom.zip"; DestDir: "{app}"; Flags: external ignoreversion deleteafterinstall; AfterInstall: DecompressAndDeleteZip
 Source: {code:GetMyFile}; DestDir: "{app}"; Flags: external
 
@@ -157,77 +158,21 @@ end;
 
 procedure CopyFileToInstallDirs;
 var
-  DestDir1, DestDir2, DestDir3, DestDir4, DestDir5: String;
+  DestDir: String;
 begin
   if Filename <> '' then
   begin
-    DestDir1 := ExpandConstant('{app}\CustomDuke');
-    DestDir2 := ExpandConstant('{app}\CustomDuke\mods\Alien Armageddon 564');
-    DestDir3 := ExpandConstant('{app}\CustomDuke\mods\Duke Nukem 3D - Legacy Edition');
-    DestDir4 := ExpandConstant('{app}\CustomDuke\mods\Imperium 2011');
-    DestDir5 := ExpandConstant('{app}\CustomDuke\mods\WGMEGA - DukePlus');
-    
-    if not DirExists(DestDir1) then
+    DestDir := ExpandConstant('{app}\CustomDuke');
+        
+    if not DirExists(DestDir) then
     begin
-      if not ForceDirectories(DestDir1) then
+      if not ForceDirectories(DestDir) then
       begin
         Exit;
       end;
     end;
 
-    if not FileCopy(Filename, DestDir1 + '\' + ExtractFileName(Filename), False) then
-    begin
-      Exit;
-    end;
-
-    if not DirExists(DestDir2) then
-    begin
-      if not ForceDirectories(DestDir2) then
-      begin
-        Exit;
-      end;
-    end;
-
-    if not FileCopy(Filename, DestDir2 + '\' + ExtractFileName(Filename), False) then
-    begin
-      Exit;
-    end;
-    
-    if not DirExists(DestDir3) then
-    begin
-      if not ForceDirectories(DestDir3) then
-      begin
-        Exit;
-      end;
-    end;
-
-    if not FileCopy(Filename, DestDir3 + '\' + ExtractFileName(Filename), False) then
-    begin
-      Exit;
-    end;
-    
-    if not DirExists(DestDir4) then
-    begin
-      if not ForceDirectories(DestDir4) then
-      begin
-        Exit;
-      end;
-    end;
-
-    if not FileCopy(Filename, DestDir4 + '\' + ExtractFileName(Filename), False) then
-    begin
-      Exit;
-    end;
-    
-    if not DirExists(DestDir5) then
-    begin
-      if not ForceDirectories(DestDir5) then
-      begin
-        Exit;
-      end;
-    end;
-
-    if not FileCopy(Filename, DestDir5 + '\' + ExtractFileName(Filename), False) then
+    if not FileCopy(Filename, DestDir + '\' + ExtractFileName(Filename), False) then
     begin
       Exit;
     end;
