@@ -6,7 +6,7 @@
 
 "Duke Nukem 3D" original or "Duke Nukem 3D: 20th Anniversary World Tour" on [steam](https://store.steampowered.com/app/434050/Duke_Nukem_3D_20th_Anniversary_World_Tour/) to get the game file: **DUKE3D.GRP**
 
-To use it, simply download the realase or [My website](https://y0uls.com) and install.\
+To use it, simply download the realase or [my website](https://y0uls.com) <a href="https://y0uls.com" target="_blank">my website</a> and install.\
 **Run** the "**Ultimate Duke Nukem 3D Custom.exe**" after install and choose the launch options!
 
 Have fun for many hours!
@@ -60,7 +60,7 @@ _Once in the "maps" folder, create a folder with the name of the map and place t
 
 # Update your maps/mods pack manually
 
-The map zip may be updated from time to time. To download it manually, enter this address: [My website]([https://y0uls.com](https://y0uls.com/downloads)) then replace the contents of the "CustomDuke" directory with the new one.
+The map zip may be updated from time to time. To download it manually, enter this address: [my website](https://y0uls.com/downloads) then replace the contents of the "CustomDuke" directory with the new one.
 
 **The "CustomDuke" directory is located in the installation folder you initially chose.**
 
