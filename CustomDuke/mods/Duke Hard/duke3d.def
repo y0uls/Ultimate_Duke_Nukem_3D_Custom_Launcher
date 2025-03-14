@@ -1,8 +1,0 @@
-// --- Duke Hard Definition File -----------------------------------------------
-
-loadgrp dukehard.dat    // Include Duke Hard data
-include dukehard.def
-
-cachesize 50331         // Do NOT change this unless you know what you're doing.
-                        // If you're playing on a platform with low physical memory, you can
-                        // comment out this line and delete the .ANM files to clear some memory.
