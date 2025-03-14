@@ -6,7 +6,7 @@
 
 "Duke Nukem 3D" original or "Duke Nukem 3D: 20th Anniversary World Tour" on [steam](https://store.steampowered.com/app/434050/Duke_Nukem_3D_20th_Anniversary_World_Tour/) to get the game file: **DUKE3D.GRP**
 
-To use it, simply download the realase or [my website](https://y0uls.com) <a href="https://y0uls.com" target="_blank">my website</a> and install.\
+To use it, simply download the realase or [my website](https://y0uls.com) and install.\
 **Run** the "**Ultimate Duke Nukem 3D Custom.exe**" after install and choose the launch options!
 
 Have fun for many hours!
