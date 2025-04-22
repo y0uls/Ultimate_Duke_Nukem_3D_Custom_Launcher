@@ -32,8 +32,8 @@ Name: "fr"; MessagesFile: "compiler:Languages\French.isl"
 [CustomMessages]
 fr.SelectFileCaption=Sélectionnez le fichier DUKE3D.GRP (fichier de données Duke Nukem 3D)
 english.SelectFileCaption=Select the DUKE3D.GRP file (Duke Nukem 3D data file)
-fr.InfoLabelCaption=Si vous possédez le jeu sur Steam, le fichier est dans :
-english.InfoLabelCaption=If you own the game on Steam, you can get the file from:
+fr.InfoLabelCaption=Vous devez posséder le jeu et sélectionner le fichier DUKE3D.GRP
+english.InfoLabelCaption=You must have the game and select the DUKE3D.GRP file
 fr.BrowseButtonCaption=Parcourir
 english.BrowseButtonCaption=Browse
 fr.SelectFileError=Veuillez sélectionner le fichier DUKE3D.GRP avant de continuer.
@@ -74,6 +74,9 @@ var
   BrowseButton: TButton;
   Filename: String;
   
+const
+  SteamFilePath = 'C:\Program Files (x86)\Steam\steamapps\common\Duke Nukem 3D Twentieth Anniversary World Tour\DUKE3D.GRP';
+
 function OnDownloadProgress(const Url, FileName: String; const Progress, ProgressMax: Int64): Boolean;
 begin
   if Progress = ProgressMax then
@@ -130,7 +133,7 @@ begin
 
   InfoLabel := TLabel.Create(PageSelectFile);
   InfoLabel.Parent := PageSelectFile.Surface;
-  InfoLabel.Caption := ExpandConstant('{cm:InfoLabelCaption}') + #13#10#13#10 + '"C:\Program Files (x86)\Steam\steamapps\common\Duke Nukem 3D..."';
+  InfoLabel.Caption := ExpandConstant('{cm:InfoLabelCaption}');
   InfoLabel.Left := 10;
   InfoLabel.Top := 10;
   InfoLabel.Width := PageSelectFile.SurfaceWidth - 20;
@@ -140,13 +143,19 @@ begin
   FilenameEdit.Left := 10;
   FilenameEdit.Top := InfoLabel.Top + InfoLabel.Height + 10;
   FilenameEdit.Width := PageSelectFile.SurfaceWidth - 80;
-
+  
   BrowseButton := TButton.Create(PageSelectFile);
   BrowseButton.Parent := PageSelectFile.Surface;
   BrowseButton.Caption := ExpandConstant('{cm:BrowseButtonCaption}');
   BrowseButton.Left := FilenameEdit.Left;
   BrowseButton.Top := FilenameEdit.Top + FilenameEdit.Height + 10;
   BrowseButton.OnClick := @BrowseButtonClick;
+  
+  if FileExists(SteamFilePath) then
+  begin
+    FilenameEdit.Text := SteamFilePath;
+    Filename := SteamFilePath;
+  end;
 end;
 
 function GetMyFile(Param: String): String;
